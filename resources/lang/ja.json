@@ -1,0 +1,25 @@
+{
+  "Title":"タイトル",
+  "Content":"本文",
+  "Category":"カテゴリー",
+  "validation.required":"必須です",
+  "Registered.":"登録しました！",
+  "Drill List" :"タイピング練習一覧",
+  "Go practice" :"挑戦する！",
+  "Login":"ログイン",
+  "Register":"登録する",
+  "Invalid operation was performed":"不正な値が入ったよ！",
+  "Registerd":"投稿しました！",
+  "Edit":"編集する",
+  "Deleted":"削除しました。",
+  "Go Delete.":"削除する",
+  "Practice":"練習",
+  "Mypage":"マイページ",
+  "Drills":"投稿一覧",
+  "See post":"投稿を見る",
+  "You need login.":"ログインしてください。",
+  "Gallery":"ギャラリー",
+  "Post":"投稿する",
+  "Loout":"ログアウト"
+
+}
