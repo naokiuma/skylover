@@ -32,7 +32,7 @@
 
                 @foreach ($posts as $post)
                 <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
-
+                <?php print_r($post_image);?>
 
                   <div class="col-sm-2 each_post">
                     <div class="card card_add image_get">
@@ -41,6 +41,8 @@
                       <div class="mask">
                         <div class="caption">
                             {{ $post->title }}
+                            
+                            
                         </div>
                       </div>
                       </div>
@@ -51,6 +53,7 @@
                         <p class="ol_badge badge-pill badge-success js-category each_post__btn">{{ $post->category->category_name }}</p>
                         <span style="display:none;" class="js-post_data">
                           {{ $post->created_at }}
+                          
                         </span>
 
                         <!--
