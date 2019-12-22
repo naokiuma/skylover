@@ -18,34 +18,34 @@
             <section class="c-category__posts">
 
                 <div class="c-category__morning" v-show="morning_pic">
-                    <li v-for="(morning_post,index) in morning_posts" :key="index" class="c-card__category">
-                        <ul class="c-category__header">    
+                    <ul v-for="(morning_post,index) in morning_posts" :key="index" class="c-card__category">
+                        <li class="c-category__header">    
                             <h4>{{ morning_post.title }}</h4>
                             <p>{{ morning_post.content }}</p>
                             <img :src="morning_post.image_url | replace('public','..storage')" alt="">
-                        </ul>                        
-                    </li>
+                        </li>                        
+                    </ul>
                 </div>
 
                 <div class="c-category__daytime" v-show="daytime_pic">
-                    <li v-for="(daytime_post,index) in daytime_posts" :key="index" class="c-card">
-                        <ul class="c-category__header">
+                    <ul v-for="(daytime_post,index) in daytime_posts" :key="index" class="c-card">
+                        <li class="c-category__header">
                             <h4>{{ daytime_post.title }}</h4>
                             <p>{{ daytime_post.content}}</p>
                             <img :src="daytime_post.image_url | replace('public','..storage')" alt="">
-                        </ul>
+                        </li>
                         
-                    </li>                   
+                    </ul>                   
                 </div>
 
                 <div class="c-category__night" v-show="night_pic">
-                    <li v-for="(night_post,index) in night_posts" :key="index" class="c-card">
-                        <ul class="c-category__header">
+                    <ul v-for="(night_post,index) in night_posts" :key="index" class="c-card">
+                        <li class="c-category__header">
                             <h4>{{ night_post.title }}</h4>
                             <p>{{ night_post.content}}</p>
                             <img :src="night_post.image_url | replace('public','..storage')" alt="">    
-                        </ul>
-                    </li>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
@@ -60,7 +60,7 @@
                 morning_posts:this.morning, 
                 daytime_posts:this.daytime,
                 night_posts:this.night,
-                morning_pic:false,
+                morning_pic:true,
                 daytime_pic:false,
                 night_pic:false
             }

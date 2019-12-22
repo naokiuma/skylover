@@ -7,6 +7,7 @@
 
   <?php $num = mt_rand(0,4);
   $top_post = $posts[$num];
+  print_r($posts);
   //$image_url = $top_post->image_url;
   $image_url = str_replace('public/', 'storage/', $top_post->image_url);
   //print_r($top_post);

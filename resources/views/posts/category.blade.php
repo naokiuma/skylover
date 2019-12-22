@@ -7,7 +7,7 @@
 </div>
 @endif
 
-<div id="app">
+<div id="categoryapp">
   <Category-component
     :morning = "{{$posts_morning}}"
     :daytime = "{{$posts_daytime}}"

@@ -18,6 +18,13 @@ body{
     font-size: 1.6rem;
 }
 
+p{
+  font-size: 16px;
+}
+li{
+  list-style: none;
+}
+
 .ol_badge {
   display: inline-block;
   padding: 0.25em 0.4em;
@@ -132,6 +139,10 @@ body{
 
 .image-s{
   width: 300px;
+  @media screen and (max-width: $res-max-width){
+    width: auto;
+    height:auto;
+    }
 }
 
 .font-s{
@@ -197,12 +208,23 @@ body{
         width:100%;
         display:flex;
         justify-content:space-around;
+        text-align: center;
         img{
             width:100%;
+            @media screen and (max-width: $res-max-width){
+              width: 80%;
+              }
+            
         }
     }
     &__header{
         width: 30%;
+        @media screen and (max-width: $res-max-width){
+          width: 100%;
+          }
+        ul{
+          margin-top: 20px;
+        }
     }
     &__morning{
         background-color:#e88d4b47;

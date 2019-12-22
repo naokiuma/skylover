@@ -1758,7 +1758,7 @@ __webpack_require__.r(__webpack_exports__);
       morning_posts: this.morning,
       daytime_posts: this.daytime,
       night_posts: this.night,
-      morning_pic: false,
+      morning_pic: true,
       daytime_pic: false,
       night_pic: false
     };
@@ -37216,8 +37216,8 @@ var render = function() {
           staticClass: "c-category__morning"
         },
         _vm._l(_vm.morning_posts, function(morning_post, index) {
-          return _c("li", { key: index, staticClass: "c-card__category" }, [
-            _c("ul", { staticClass: "c-category__header" }, [
+          return _c("ul", { key: index, staticClass: "c-card__category" }, [
+            _c("li", { staticClass: "c-category__header" }, [
               _c("h4", [_vm._v(_vm._s(morning_post.title))]),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(morning_post.content))]),
@@ -37252,8 +37252,8 @@ var render = function() {
           staticClass: "c-category__daytime"
         },
         _vm._l(_vm.daytime_posts, function(daytime_post, index) {
-          return _c("li", { key: index, staticClass: "c-card" }, [
-            _c("ul", { staticClass: "c-category__header" }, [
+          return _c("ul", { key: index, staticClass: "c-card" }, [
+            _c("li", { staticClass: "c-category__header" }, [
               _c("h4", [_vm._v(_vm._s(daytime_post.title))]),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(daytime_post.content))]),
@@ -37288,8 +37288,8 @@ var render = function() {
           staticClass: "c-category__night"
         },
         _vm._l(_vm.night_posts, function(night_post, index) {
-          return _c("li", { key: index, staticClass: "c-card" }, [
-            _c("ul", { staticClass: "c-category__header" }, [
+          return _c("ul", { key: index, staticClass: "c-card" }, [
+            _c("li", { staticClass: "c-category__header" }, [
               _c("h4", [_vm._v(_vm._s(night_post.title))]),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(night_post.content))]),
@@ -49516,7 +49516,7 @@ Vue.component('category-component', __webpack_require__(/*! ./components/Categor
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#categoryapp'
 });
 
 /***/ }),
