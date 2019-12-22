@@ -6,6 +6,8 @@
   {{ session('flash_message') }}
 </div>
 @endif
+　
+
 <div class="container">
 
   <h1><?php if($keyword)
@@ -15,8 +17,9 @@
   ?></h1>
 
   <?php
+ // var_dump($posts);
+ //print_r($posts);
   $top_post = $posts[0];
-  //$image_url = $top_post->image_url;
   $image_url = str_replace('public/', 'storage/', $top_post->image_url);
 
   ?>
@@ -34,25 +37,7 @@
       </button>
       </div>
   </form>
-  <form method="POST" action="{{ route('posts.category')}}" class="billbord" enctype="multipart/form-data" >
-    {{ csrf_field() }}
 
-      <div class="form-group container-fruid">
-      <label for="category_name" class="font-s">カテゴリで検索</label><br>
-        <select class="font-s js-select-category" name="category_search">
-          <option value="1" selected>明るい空</option>
-          <option value="2">夕の空</option>
-          <option value="3">雲</option>
-          <option value="4">光景</option>
-          <option value="5">人工の光景</option>
-        </select>
-
-      <button type="submit" class="btn btn-primary">
-                  {{__('Seatch')}}
-      </button>
-      </div>
-  </form>
-</div>
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container billbord">

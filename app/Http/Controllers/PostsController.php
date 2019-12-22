@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Log;
 use App\Post;
 use App\Category;
 
-use Illuminate\Support\Facades\DB; //これ参考https://readouble.com/laravel/5.7/ja/queries.html
+use Illuminate\Support\Facades\DB; 
+//これ参考 https://readouble.com/laravel/5.7/ja/queries.html
 
 //use App\Http\Requests\HelloRequest;
 //あとでつける。
@@ -78,11 +79,12 @@ public function show($id){
   }
 
 
-//------------------検索ページ
+//------------------キーワードで検索ページ
 
 public function gallery(){
 
   $posts = Post::all();
+  //Log::debug(print_r("結果だよ".$posts, true));
   $keyword = '';
   //$select_category ='';
 
@@ -104,6 +106,16 @@ return view ('posts.gallery',compact('posts','keyword'));
 }
 
 
+public function category(){
+  //$posts_morning = json_encode(Post::where('category_id',1)->get(),JSON_UNESCAPED_UNICODE);
+  $posts_morning = Post::where('category_id',1)->get();
+  $posts_daytime = Post::where('category_id',2)->get();
+  $posts_night = Post::where('category_id',3)->get();
+
+  return view ('posts.category',compact('posts_morning','posts_daytime','posts_night'));
+}
+
+/*
 //------------------カテゴリ検索アクション
 
 public function category(Request $request){
@@ -125,7 +137,7 @@ public function category(Request $request){
 //Log::debug(print_r("結果はあり！".$posts, true));
 return view ('posts.gallery',compact('posts','keyword'));
 }
-
+*/
 
 
 //------------------ニュース一覧アクション

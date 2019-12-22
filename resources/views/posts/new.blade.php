@@ -34,11 +34,9 @@
     <div class="form-group">
     <label for="category_name" class="font-s">{{__('Category')}}</label><br>
       <select class="" name="category_id">
-        <option value="1" selected>明るい空</option>
-        <option value="2">夕の空</option>
-        <option value="3">雲</option>
-        <option value="4">光景</option>
-        <option value="5">人工の光景</option>
+        <option value="1" selected>朝の空</option>
+        <option value="2">日中の空</option>
+        <option value="3">夜の空</option>
       </select>
     </div>
 

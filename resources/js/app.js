@@ -10,6 +10,8 @@ require('./click_change');
 //require('./form_validate.js')
 
 window.Vue = require('vue');
+Vue.component('category-component', require('./components/CategoryComponent.vue').default);
+
 
 /**
  * The following block of code may be used to automatically register your

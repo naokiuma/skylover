@@ -15,26 +15,15 @@
     </div>
 </template>
 
-<template>
-    <div class="form-group container-fruid ">
-    <label for="category_name" class="font-s">カテゴリで検索</label><br>
-      <select class="font-s" v-model="selected"  v-on:change="testFunc">
-        <option value="1" selected>明るい空</option>
-        <option value="2">夕の空</option>
-        <option value="3">雲</option>
-        <option value="4">光景</option>
-        <option value="5">人工の光景</option>
-      </select>
-      <span>Selected: {{ selected }}</span>
-    </div>
-</template>
 
-<template>
-
-</template>
 
 <script>
     export default {
+            mounted() {
+            console.log('Component mountedだ.');
+        }
+
+        /*
         props:['posts'],
         data:function(){
           return{
@@ -50,8 +39,9 @@
         },
         mounted() {
             console.log('Component mounted.'),
-            axios.get('/posts/gallery').then(response => this.posts),
-            console.log(this.posts)
+            //axios.get('/posts/gallery').then(response => this.posts),
+            //console.log(this.posts)
         }
+    }*/
     }
 </script>

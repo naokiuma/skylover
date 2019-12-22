@@ -6,3 +6,213 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+$res-max-width:768px;
+
+html{
+    font-size: 80.5%;
+}
+
+body{
+    color: #333;
+    font-size: 1.6rem;
+}
+
+.ol_badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 50%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.billbord{
+  max-width: 90%;
+  margin: 5% auto;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.each_post{
+  background-color: #d8e7f0;
+  padding: 2px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.each_post__btn{
+  margin-left: 4%;
+  width: 80%;
+}
+
+
+.img_whrapper{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  .caption{
+    font-size:		80%;
+    text-align: 		center;
+    color:			#fff;
+  }
+  .mask{
+    width:			100%;
+    height:			100%;
+    position:		absolute;
+    top:			0;
+    left:			0;
+    opacity:		0;	/* マスクを表示しない */
+    background-color:	rgba(0,0,0,0.4);
+    -webkit-transition:	all 0.6s ease;
+    transition:		all 0.3s ease;
+  }
+
+}
+
+/*カテゴリーページ*/
+
+
+
+/*
+.img_whrapper .caption{
+  font-size:		80%;
+  text-align: 		center;
+  color:			#fff;
+}
+
+.img_whrapper .mask{
+  width:			100%;
+  height:			100%;
+  position:		absolute;
+  top:			0;
+  left:			0;
+  opacity:		0;	
+  background-color:	rgba(0,0,0,0.4);
+  -webkit-transition:	all 0.6s ease;
+  transition:		all 0.3s ease;
+}
+*/
+
+.img_whrapper:hover .mask{
+  opacity: 1;
+  padding-top: 60px;
+}
+
+
+
+.time_info{
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.card_add{
+  max-width: 80%;
+  background-color: #eee8aa;
+  margin: 5% auto;
+}
+
+.image-l{
+  width: 100%;
+
+}
+.image-m{
+  width: 940px;
+  height: 600px;
+  @media screen and (max-width: $res-max-width){
+    width: auto;
+    height:auto;
+    }
+}
+
+.image-s{
+  width: 300px;
+}
+
+.font-s{
+  font-size: 15px;
+}
+.font-m{
+  font-size: 25px;
+  display: inline-block;
+  
+}
+
+
+.font-m::after {
+  border-bottom: solid 2px #f00;
+  bottom: 0;
+  content: "";
+  display: block;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  width: 0;
+}
+.font-m:hover::after {
+  width: 100%;
+}
+
+/*flexboxでmasonry的動き*/
+.flexbox{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /*height: 30vw;  ビューポート(幅)を基準に表示高を指定 */
+}
+
+.grid{
+  overflow: hidden;
+}
+.grid-item {
+  width: 220px;
+  margin: 5px;
+  float: left;
+  border: 1px solid #ccc;
+  background: #eee;
+  box-shadow: 0 2px 1px #eee;
+}
+.gird-item .image {
+  display: block;
+  width: 100%;
+  height: 109px;
+}
+
+.c-category{
+    &__wrapper{
+        width: 100%;
+    }
+    &__btn-wrapper{
+        justify-content:space-around;
+        display: flex;
+    }
+    &__posts{
+        width:100%;
+        display:flex;
+        justify-content:space-around;
+        img{
+            width:100%;
+        }
+    }
+    &__header{
+        width: 30%;
+    }
+    &__morning{
+        background-color:#e88d4b47;
+    }
+    &__daytime{
+        background-color: skyblue;
+    }
+    &__night{
+        background-color: #00008b6e;
+    }
+
+
+}

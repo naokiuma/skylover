@@ -1,7 +1,99 @@
+<template>
+    <div class="c-category__wrapper">
+            <div class="col-md-12 c-category__btn-wrapper">
+
+                <section>
+                    <h2 v-on:click="show_morning">Morning</h2>
+                </section>
+
+                <section>
+                    <h2 v-on:click="show_daytime">Daytime</h2>
+                </section>
+
+                <section>
+                    <h2 v-on:click="show_night">Night</h2>
+                </section>
+            </div>
+
+            <section class="c-category__posts">
+
+                <div class="c-category__morning" v-show="morning_pic">
+                    <li v-for="(morning_post,index) in morning_posts" :key="index" class="c-card__category">
+                        <ul class="c-category__header">    
+                            <h4>{{ morning_post.title }}</h4>
+                            <p>{{ morning_post.content }}</p>
+                            <img :src="morning_post.image_url | replace('public','..storage')" alt="">
+                        </ul>                        
+                    </li>
+                </div>
+
+                <div class="c-category__daytime" v-show="daytime_pic">
+                    <li v-for="(daytime_post,index) in daytime_posts" :key="index" class="c-card">
+                        <ul class="c-category__header">
+                            <h4>{{ daytime_post.title }}</h4>
+                            <p>{{ daytime_post.content}}</p>
+                            <img :src="daytime_post.image_url | replace('public','..storage')" alt="">
+                        </ul>
+                        
+                    </li>                   
+                </div>
+
+                <div class="c-category__night" v-show="night_pic">
+                    <li v-for="(night_post,index) in night_posts" :key="index" class="c-card">
+                        <ul class="c-category__header">
+                            <h4>{{ night_post.title }}</h4>
+                            <p>{{ night_post.content}}</p>
+                            <img :src="night_post.image_url | replace('public','..storage')" alt="">    
+                        </ul>
+                    </li>
+                </div>
+            </section>
+
+        </div>
+</template>
+
 <script>
     export default {
-        mounted() {
-            axios.get
+        props:['morning','daytime','night'],
+        data:function(){
+            return{
+                morning_posts:this.morning, 
+                daytime_posts:this.daytime,
+                night_posts:this.night,
+                morning_pic:false,
+                daytime_pic:false,
+                night_pic:false
+            }
+        },
+        mounted(){
+           // console.log("朝です");
+            console.log(this.morning_posts);
+        },
+        
+        filters:{ //カスタムフィルタ
+            replace:function(val){
+                return val.replace("public", "../storage");   
+
+            }
+        },
+        
+        methods:{
+            show_morning:function(){
+                this.morning_pic = true;
+                this.daytime_pic = false;
+                this.night_pic = false;
+            },
+            show_daytime:function(){
+                this.morning_pic = false;
+                this.daytime_pic = true;
+                this.night_pic = false;
+            },
+            show_night:function(){
+                this.morning_pic = false;
+                this.daytime_pic = false;
+                this.night_pic = true;
+            }
         }
+
     }
 </script>

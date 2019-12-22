@@ -6,8 +6,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 
-    <title>Sky Light Lover.</title>
+    <title>Sky Light Lover</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +26,7 @@
     <div id="app">
         <nav class="navbar font-s navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" style="font-size:20px;" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     Sky Light Lover
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -60,10 +61,10 @@
                               <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
+                              <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('logout') }}">{{ __('Loout') }}</a>
+                              <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
                           </li>
 
 

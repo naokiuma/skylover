@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/news', 'PostsController@news');
 Route::get('/', 'PostsController@index');
 Route::get('/posts/gallery','PostsController@gallery')->name('posts.gallery');
+Route::get('/posts/category','PostsController@category')->name('posts.category');
+
 Route::get('/posts/{id}','PostsController@show')->name('posts.show');
 Route::get('/new', 'PostsController@new')->middleware('check')->name('new');
 
