@@ -8,13 +8,13 @@
 @endif
 
 <div id="app">
-  <category-component
+  <Category-component
     :morning = "{{$posts_morning}}"
     :daytime = "{{$posts_daytime}}"
     :night = "{{$posts_night}}"
 
   >
-  </category-component>
+  </Category-component>
 </div>
 
 @endsection

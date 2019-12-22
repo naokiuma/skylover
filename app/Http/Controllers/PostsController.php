@@ -43,7 +43,6 @@ class PostsController extends Controller
     //バリデート（あとでミドルウェアに移す）
     $this->validate($request,[
       'title' => 'required|string|max:255',
-      //'content' => 'required|string|max:255',
       'category_id' => 'required|string|max:255',
       'image_url' => 'max:2048',
     ]);
