@@ -29,5 +29,7 @@ Route::get('/new', 'PostsController@new')->middleware('check')->name('new');
 
 Route::get('/{id}/edit','PostsController@edit')->middleware('check');
 Route::post('/posts', 'PostsController@create')->name('posts.create');
+Route::post('/posts/{id}/delete', 'PostsController@destroy')->name('posts.delete');
 Route::post('/posts/gallery', 'PostsController@search')->name('posts.search');//検索
 Route::post('/posts/category', 'PostsController@category')->name('posts.category');
+

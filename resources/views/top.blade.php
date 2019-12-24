@@ -5,7 +5,7 @@
 
 
 
-  <?php $num = mt_rand(0,4);
+  <?php $num = mt_rand(0,1);
   $top_post = $posts[$num];
   //print_r($posts);
   //$image_url = $top_post->image_url;
@@ -40,9 +40,7 @@
                       <img src ="./{{ $post_image }}" class="img-fluid image-s image_active" alt="Responsive image">
                       <div class="mask">
                         <div class="caption">
-                            {{ $post->title }}
-                            
-                            
+                            {{ $post->title }}  
                         </div>
                       </div>
                       </div>
@@ -56,11 +54,6 @@
                           
                         </span>
 
-                        <!--
-                        @if (Auth::user())
-                        <a href="" class="btn btn-warning">{{ __('Edit')}}</a>
-                        @endif
-                        -->
                       </div>
                     </div>
                   </div>

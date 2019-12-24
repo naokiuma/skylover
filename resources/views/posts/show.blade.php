@@ -6,7 +6,10 @@
 
   <?php
   $image_url = str_replace('public/', 'storage/', $post->image_url);
+  //echo $post->user_id;
   ?>
+
+
 
 
   <div class="jumbotron-fluid">
@@ -18,6 +21,17 @@
 
     </div>
   </div>
+
+  <?php if($user->id === $post->user_id) :?>
+
+    <form action="{{ route('posts.delete',$post->id ) }}" method="post" class="d-inline">
+      @csrf
+      <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>{{ __('Go Delete')  }}</button>
+    </form> 
+
+  <?php endif; ?>
+
+
 
 </div>
 

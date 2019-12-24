@@ -19,6 +19,7 @@ class PostsController extends Controller
 {
   public function index (){
     $posts = Post::all();
+    Log::debug(print_r("結果だよ".$posts, true));
     //変数に値を渡したい場合第二引数で設定。この場合、postsに値が入る
     //なお、変数に同じ値を入れる設定としてcombineもあり。その場合 ('drills.index',combine('drills'));となる。
 
@@ -72,10 +73,25 @@ public function show($id){
     return redirect('/')->with('flash_message',__('Invalid operation was performed.'));
   }
 
+  $user = Auth::user();
   $post = Post::find($id);
-  return view('posts.show',compact('post'));
+  
+  return view('posts.show',compact('post','user'));
 
   }
+
+//------------------削除アクション
+
+public function destroy($id){
+
+  if(!ctype_digit($id)){
+    return redirect('/')->with('flash_message', __('Invalid operation was performed.'));
+  }
+  Post::find($id)->delete();
+  return redirect('posts/gallery')->with('flash_message', __('削除しました！'));
+
+}
+
 
 
 //------------------キーワードで検索ページ
@@ -83,7 +99,7 @@ public function show($id){
 public function gallery(){
 
   $posts = Post::all();
-  //Log::debug(print_r("結果だよ".$posts, true));
+  Log::debug(print_r("結果だよ".$posts, true));
   $keyword = '';
   //$select_category ='';
 

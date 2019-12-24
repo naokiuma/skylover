@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -11370,6 +11369,10 @@ p {
   font-size: 16px;
 }
 
+li {
+  list-style: none;
+}
+
 .ol_badge {
   display: inline-block;
   padding: 0.25em 0.4em;
@@ -11399,9 +11402,21 @@ p {
   transition: 0.3s ease-in-out;
 }
 
+@media screen and (max-width: 768px) {
+  .top_title {
+    font-size: 20px;
+  }
+}
+
 .each_post__btn {
   margin-left: 4%;
   width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .each_post__btn {
+    width: 50%;
+  }
 }
 
 .img_whrapper {
@@ -11431,6 +11446,14 @@ p {
   transition: all 0.3s ease;
 }
 
+@media screen and (max-width: 768px) {
+  .img_whrapper .mask {
+    opacity: 1;
+    padding-top: 20%;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
 /*カテゴリーページ*/
 
 /*
@@ -11455,7 +11478,7 @@ p {
 
 .img_whrapper:hover .mask {
   opacity: 1;
-  padding-top: 60px;
+  padding-top: 20%;
 }
 
 .time_info {
@@ -11491,8 +11514,9 @@ p {
 
 @media screen and (max-width: 768px) {
   .image-s {
-    width: auto;
+    width: 80%;
     height: auto;
+    margin-top: 10px;
   }
 }
 

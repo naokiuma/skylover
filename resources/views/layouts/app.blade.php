@@ -59,9 +59,11 @@
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
                           </li>
+                          <!--
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
                           </li>
+                          -->
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
                           </li>
