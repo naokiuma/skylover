@@ -45,7 +45,7 @@ class PostsController extends Controller
     $this->validate($request,[
       'title' => 'required|string|max:255',
       'category_id' => 'required|string|max:255',
-      'image_url' => 'max:2048',
+      'image_url' => 'required|file|image|max:10240', 
     ]);
 
     //元々のもの

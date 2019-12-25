@@ -3,6 +3,15 @@
 @section('content')
 
 <section class="jumbotron">
+@if(count($errors) > 0)
+ <div class="error">
+   <ul>
+     @foreach($errors->all() as $error)
+       <li>{{ $error }}</li>
+     @endforeach
+   </ul>
+ </div>
+@endif
 
 
 <div class="col-sm-12">
@@ -26,7 +35,7 @@
     <div class="form-group">
       <span class="font-m">画像投稿</span>
     <div class="form-image_url">
-      <input type="file" name="image_url">
+      <input type="file" name="image_url" value="{{old('image_url')}}">
     </div>
     </div>
 
