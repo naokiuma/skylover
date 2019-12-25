@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <?php if($user->id === $post->user_id) :?>
+  <?php if($user->id == $post->user_id) :?>
 
     <form action="{{ route('posts.delete',$post->id ) }}" method="post" class="d-inline">
       @csrf
