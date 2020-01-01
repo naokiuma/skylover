@@ -22,6 +22,8 @@
     </div>
   </div>
 
+@if( Auth::check() )
+    
   <?php if($user->id == $post->user_id) :?>
 
     <form action="{{ route('posts.delete',$post->id ) }}" method="post" class="d-inline">
@@ -31,7 +33,7 @@
 
   <?php endif; ?>
 
-
+@endif
 
 </div>
 
