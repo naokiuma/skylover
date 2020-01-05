@@ -29,12 +29,12 @@
 </div>
 
 <div class="container-fruid">
-    <div class="row justify-content-center">
+    <div class="each_posts">
 
                 @foreach ($posts as $post)
                 <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
 
-                  <div class="col-sm-2 each_post">
+                  <div class="each_post">
                     <div class="card card_add image_get">
                       <div class="img_whrapper">
                       <img src ="./{{ $post_image }}" class="img-fluid image-s image_active" alt="Responsive image">

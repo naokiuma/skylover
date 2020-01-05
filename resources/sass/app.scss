@@ -45,11 +45,21 @@ li{
   letter-spacing: 1px;
 }
 
+.each_posts{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .each_post{
   background-color: #d8e7f0;
   padding: 2px;
   text-align: center;
   transition: 0.3s ease-in-out;
+  width: 30%;
+  @media screen and (max-width: $res-max-width){
+    width: 50%;
+    }
 }
 
 .top_title{
@@ -62,7 +72,7 @@ li{
   margin-left: 4%;
   width: 80%;
   @media screen and (max-width: $res-max-width){
-    width: 50%;
+    width: 100%;
     }
 }
 

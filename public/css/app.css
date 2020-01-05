@@ -11394,12 +11394,28 @@ li {
   letter-spacing: 1px;
 }
 
+.each_posts {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .each_post {
   background-color: #d8e7f0;
   padding: 2px;
   text-align: center;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  .each_post {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -11415,7 +11431,7 @@ li {
 
 @media screen and (max-width: 768px) {
   .each_post__btn {
-    width: 50%;
+    width: 100%;
   }
 }
 
