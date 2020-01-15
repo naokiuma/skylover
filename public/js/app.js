@@ -37187,7 +37187,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "c-category__wrapper" }, [
-    _c("div", { staticClass: "col-md-12 c-category__btn-wrapper" }, [
+    _c("div", { staticClass: "c-category__btn-wrapper" }, [
       _c("section", [
         _c("h2", { on: { click: _vm.show_morning } }, [_vm._v("Morning")])
       ]),
@@ -37216,22 +37216,24 @@ var render = function() {
           staticClass: "c-category__morning"
         },
         _vm._l(_vm.morning_posts, function(morning_post, index) {
-          return _c("ul", { key: index, staticClass: "c-card__category" }, [
-            _c("li", { staticClass: "c-category__header" }, [
+          return _c("div", { key: index }, [
+            _c("div", { staticClass: "c-category__header" }, [
               _c("h4", [_vm._v(_vm._s(morning_post.title))]),
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(morning_post.content))]),
               _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src: _vm._f("replace")(
-                    morning_post.image_url,
-                    "public",
-                    "..storage"
-                  ),
-                  alt: ""
-                }
-              })
+              _c("a", { attrs: { href: morning_post.id, target: "_blank" } }, [
+                _c("img", {
+                  attrs: {
+                    src: _vm._f("replace")(
+                      morning_post.image_url,
+                      "public",
+                      "..storage"
+                    ),
+                    alt: ""
+                  }
+                })
+              ])
             ])
           ])
         }),
@@ -37258,16 +37260,18 @@ var render = function() {
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(daytime_post.content))]),
               _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src: _vm._f("replace")(
-                    daytime_post.image_url,
-                    "public",
-                    "..storage"
-                  ),
-                  alt: ""
-                }
-              })
+              _c("a", { attrs: { href: daytime_post.id, target: "_blank" } }, [
+                _c("img", {
+                  attrs: {
+                    src: _vm._f("replace")(
+                      daytime_post.image_url,
+                      "public",
+                      "..storage"
+                    ),
+                    alt: ""
+                  }
+                })
+              ])
             ])
           ])
         }),
@@ -37294,16 +37298,18 @@ var render = function() {
               _vm._v(" "),
               _c("p", [_vm._v(_vm._s(night_post.content))]),
               _vm._v(" "),
-              _c("img", {
-                attrs: {
-                  src: _vm._f("replace")(
-                    night_post.image_url,
-                    "public",
-                    "..storage"
-                  ),
-                  alt: ""
-                }
-              })
+              _c("a", { attrs: { href: night_post.id, target: "_blank" } }, [
+                _c("img", {
+                  attrs: {
+                    src: _vm._f("replace")(
+                      night_post.image_url,
+                      "public",
+                      "..storage"
+                    ),
+                    alt: ""
+                  }
+                })
+              ])
             ])
           ])
         }),

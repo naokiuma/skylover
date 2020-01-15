@@ -18,8 +18,13 @@
   "Drills":"投稿一覧",
   "See post":"投稿を見る",
   "You need login.":"ログインしてください。",
-  "Gallery":"全記事を見る",
+  "Gallery":"ギャラリー",
   "Time":"時間で探す",
   "Post":"投稿する",
-  "Loout":"ログアウト"
+  "Loout":"ログアウト",
+  "Name":"名前",
+  "Remember Me":"パスワードを記憶する",
+  "E-Mail Address":"Eメールアドレス",
+  "Password":"パスワード",
+  "Confirm Password":"パスワード再入力"
 }

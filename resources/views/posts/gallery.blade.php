@@ -50,13 +50,13 @@
   </div>
 
 
-    <div class="row justify-content-center">
+    <div class="each_posts">
 
                 @foreach ($posts as $post)
 
                 <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
 
-                  <div class="col-12 col-sm-4 col-lg-2 each_post flexbox">
+                  <div class="each_post">
 
                       <div class="card card_add image_get">
                         <div class="img_whrapper">

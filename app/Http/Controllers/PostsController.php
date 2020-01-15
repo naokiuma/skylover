@@ -112,11 +112,14 @@ public function search(Request $request){
  $keyword = $request->input('keyword');
  $posts = Post::where('title','LIKE',"%{$keyword}%")->get();
  Log::debug(print_r("結果".$posts , true));
+ Log::debug(count($posts));
 
- if(empty($posts)){
+ 
+
+ if(count($posts) === 0){
    $posts = Post::all();
    return view ('posts.gallery',compact('posts','keyword'))->with('flash_message',__('一致する結果がありませんでした。全投稿を表示します。'));
- };
+ }
 return view ('posts.gallery',compact('posts','keyword'));
 }
 

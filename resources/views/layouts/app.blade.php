@@ -11,8 +11,14 @@
 
     <title>Sky Light Lover</title>
 
-    <!-- Scripts -->
+    <!-- Scripts。ファイルとmasonaryとjquery -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><!--imagesLoadedってやつ-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -102,5 +108,34 @@
 
 
 
+<script>
+/*fadeinロゴ*/
+$(function() {
+	setTimeout(function(){
+		$('.start h2').fadeIn(1600);
+    },500); //0.5秒後にロゴをフェードイン!
+    setTimeout(function(){
+        $('.start span').fadeIn(1600);
+    },1000);
+	setTimeout(function(){
+		$('.start').fadeOut(500);
+	},2800); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+});
+      
+
+// init Masonry
+var $each_posts = $('.each_posts').masonry({
+  // options
+    itemSelector: '.each_post',
+    columnWidth: 10
+});
+// layout Masonry after each image loads
+$each_posts.imagesLoaded().progress( function() {
+  $each_posts.masonry('layout');
+});
+ 
+
+
+</script>
 </body>
 </html>

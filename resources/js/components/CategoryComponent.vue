@@ -1,6 +1,6 @@
 <template>
     <div class="c-category__wrapper">
-            <div class="col-md-12 c-category__btn-wrapper">
+            <div class="c-category__btn-wrapper">
 
                 <section>
                     <h2 v-on:click="show_morning">Morning</h2>
@@ -18,13 +18,13 @@
             <section class="c-category__posts">
 
                 <div class="c-category__morning" v-show="morning_pic">
-                    <ul v-for="(morning_post,index) in morning_posts" :key="index" class="c-card__category">
-                        <li class="c-category__header">    
+                    <div v-for="(morning_post,index) in morning_posts" :key="index">
+                        <div class="c-category__header">    
                             <h4>{{ morning_post.title }}</h4>
                             <p>{{ morning_post.content }}</p>
-                            <img :src="morning_post.image_url | replace('public','..storage')" alt="">
-                        </li>                        
-                    </ul>
+                            <a :href="morning_post.id" target="_blank"><img :src="morning_post.image_url | replace('public','..storage')" alt=""></a>
+                        </div>                        
+                    </div>
                 </div>
 
                 <div class="c-category__daytime" v-show="daytime_pic">
@@ -32,7 +32,7 @@
                         <li class="c-category__header">
                             <h4>{{ daytime_post.title }}</h4>
                             <p>{{ daytime_post.content}}</p>
-                            <img :src="daytime_post.image_url | replace('public','..storage')" alt="">
+                            <a :href="daytime_post.id" target="_blank"><img :src="daytime_post.image_url | replace('public','..storage')" alt=""></a>
                         </li>
                         
                     </ul>                   
@@ -43,7 +43,7 @@
                         <li class="c-category__header">
                             <h4>{{ night_post.title }}</h4>
                             <p>{{ night_post.content}}</p>
-                            <img :src="night_post.image_url | replace('public','..storage')" alt="">    
+                            <a :href="night_post.id" target="_blank"><img :src="night_post.image_url | replace('public','..storage')" alt=""></a>
                         </li>
                     </ul>
                 </div>

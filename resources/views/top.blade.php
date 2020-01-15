@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="start">
+  <h2>Have a nice <span>SKY!</span></h2>
+</div>
 <div class="container">
 
 
@@ -34,33 +38,22 @@
                 @foreach ($posts as $post)
                 <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
 
-                  <div class="each_post">
-                    <div class="card card_add image_get">
-                      <div class="img_whrapper">
+                  <div class="each_post image_get">
+
+                  <div class="img_whrapper">
                       <img src ="./{{ $post_image }}" class="img-fluid image-s image_active" alt="Responsive image">
                       <div class="mask">
                         <div class="caption">
-                            {{ $post->title }}  
+                          <a href="{{route('posts.show',$post->id) }}" class="btn btn-primary each_post__btn">{{ $post->title }} </a>
                         </div>
                       </div>
                       </div>
 
-
-                      <div class="card-body">
-                        <a href="{{route('posts.show',$post->id) }}" class="btn btn-primary each_post__btn">{{ __('See post')}}</a>
-                        <p class="ol_badge badge-pill badge-success js-category each_post__btn">{{ $post->category->category_name }}</p>
-                        <span style="display:none;" class="js-post_data">
-                          {{ $post->created_at }}
-                          
-                        </span>
-
-                      </div>
-                    </div>
                   </div>
 
                   @endforeach
 
 
-</div>
+ </div>
 </div>
 @endsection

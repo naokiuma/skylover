@@ -11356,6 +11356,77 @@ a.text-dark:focus {
   }
 }
 
+.form__wrapper {
+  width: 90%;
+  height: 85vh;
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.form-top {
+  text-align: center;
+  padding: 30px;
+}
+
+.form__container {
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.form__container h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+.form__container__area {
+  text-align: center;
+}
+
+.form__container form div {
+  text-align: center;
+}
+
+.form__container form div label {
+  font-size: 16px;
+}
+
+.form-tw__container {
+  width: 40%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.form-tw__container h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+.form-tw__container p {
+  font-size: 12px;
+}
+
+.form-tw__container button {
+  background-color: #1da1f2;
+  color: #fff;
+  margin: 50px auto;
+  height: 50px;
+  width: 200px;
+  border-color: #2176bd45;
+}
+
+.form-tw__container button:hover {
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+}
+
+.form-tw__container a {
+  color: white;
+  padding: 10px;
+}
+
 html {
   font-size: 80.5%;
 }
@@ -11371,6 +11442,36 @@ p {
 
 li {
   list-style: none;
+}
+
+/*スタート時のコンテンツ*/
+
+.start {
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9000;
+}
+
+.start h2 {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  z-index: 10;
+  width: 100%;
+  font-size: 60px;
+  text-align: center;
+}
+
+.start h2 span {
+  font-size: 120px;
+  color: #1da1f2;
 }
 
 .ol_badge {
@@ -11409,13 +11510,11 @@ li {
   text-align: center;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  width: 30%;
+  width: 20%;
 }
 
-@media screen and (max-width: 768px) {
-  .each_post {
-    width: 50%;
-  }
+.each_post:nth-child(even) {
+  width: 10%;
 }
 
 @media screen and (max-width: 768px) {
@@ -11503,9 +11602,8 @@ li {
 }
 
 .card_add {
-  max-width: 80%;
+  max-width: 100%;
   background-color: #eee8aa;
-  margin: 5% auto;
 }
 
 .image-l {
@@ -11620,6 +11718,7 @@ li {
 
 .c-category__header {
   width: 30%;
+  margin: 15px;
 }
 
 @media screen and (max-width: 768px) {

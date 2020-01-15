@@ -7,6 +7,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//formscss
+@import "form.scss";
 $res-max-width:768px;
 
 html{
@@ -24,6 +26,38 @@ p{
 li{
   list-style: none;
 }
+
+/*スタート時のコンテンツ*/
+
+.start{
+  background: #FFF;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+  z-index: 9000;
+  h2{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 10;
+    width: 100%;
+    font-size: 60px;
+    text-align: center;
+    span{
+      font-size:120px;
+      color: #1da1f2;
+    }
+
+
+
+  }
+}
+
+
 
 .ol_badge {
   display: inline-block;
@@ -56,11 +90,14 @@ li{
   padding: 2px;
   text-align: center;
   transition: 0.3s ease-in-out;
-  width: 30%;
-  @media screen and (max-width: $res-max-width){
-    width: 50%;
-    }
+  width: 20%;
 }
+
+.each_post:nth-child(even){
+  width: 10%;
+}
+
+
 
 .top_title{
   @media screen and (max-width: $res-max-width){
@@ -147,9 +184,8 @@ li{
 }
 
 .card_add{
-  max-width: 80%;
+  max-width: 100%;
   background-color: #eee8aa;
-  margin: 5% auto;
 }
 
 .image-l{
@@ -248,6 +284,7 @@ li{
     }
     &__header{
         width: 30%;
+        margin: 15px;
         @media screen and (max-width: $res-max-width){
           width: 100%;
           }

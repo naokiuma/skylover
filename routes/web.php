@@ -33,3 +33,12 @@ Route::post('/posts/{id}/delete', 'PostsController@destroy')->name('posts.delete
 Route::post('/posts/gallery', 'PostsController@search')->name('posts.search');//検索
 Route::post('/posts/category', 'PostsController@category')->name('posts.category');
 
+//ツイッター関連
+// ログインURL
+Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
+// コールバックURL
+Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
+// ログアウトURL
+Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
+
+
