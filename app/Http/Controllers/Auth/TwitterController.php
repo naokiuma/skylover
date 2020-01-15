@@ -27,7 +27,7 @@ class TwitterController extends Controller
             //Log::debug("出力！");
             //Log::debug(print_r($twitterUser, true));
         }catch(Exception $e){
-            return redirect('auth/twitter');
+            return redirect('/')->withErrors('ユーザー情報の取得に失敗しました。');
         }
 
         //ログインしているかチェック
