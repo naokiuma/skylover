@@ -26,12 +26,12 @@
 
     <div class="step__photo">
       <h3>2.写真を撮る</h3>
-      <img src="../img/photo2.jpg" alt="">
+      <img src="/img/photo2.jpg" alt="">
     </div>
 
     <div class="step__post">
       <h3>3.投稿する</h3>
-      <img src="../img/post.jpg" alt="">
+      <img src="/img/post.jpg" alt="">
     </div>
 
 
