@@ -486,6 +486,7 @@ li{
     &__morning{
         background-color:#b0704275;
         overflow: hidden;
+        min-height: 100vh;
         ul{
           padding: 0;
         }
@@ -493,6 +494,7 @@ li{
     }
     &__daytime{
       overflow: hidden;
+      min-height: 100vh;
         ul{
           padding: 0;
         }
@@ -500,6 +502,7 @@ li{
     &__night{
         background-color: #44449763;
         overflow: hidden;
+        min-height: 100vh;
         ul{
           padding: 0;
         }

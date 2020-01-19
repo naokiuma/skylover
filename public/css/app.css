@@ -10997,12 +10997,14 @@ li {
 .c-category__morning {
   background-color: #b0704275;
   overflow: hidden;
+  min-height: 100vh;
 }
 .c-category__morning ul {
   padding: 0;
 }
 .c-category__daytime {
   overflow: hidden;
+  min-height: 100vh;
 }
 .c-category__daytime ul {
   padding: 0;
@@ -11010,6 +11012,7 @@ li {
 .c-category__night {
   background-color: #44449763;
   overflow: hidden;
+  min-height: 100vh;
 }
 .c-category__night ul {
   padding: 0;
