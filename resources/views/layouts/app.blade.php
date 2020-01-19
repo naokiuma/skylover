@@ -128,7 +128,7 @@ $(function() {
     },1000);
 	setTimeout(function(){
 		$('.start').fadeOut(500);
-	},2000); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+	},2300); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
 });
       
 
@@ -136,7 +136,7 @@ $(function() {
 var $each_posts = $('.each_posts').masonry({
   // options
     itemSelector: '.each_post',
-    columnWidth: 10,
+    columnWidth: 50,
     gutter: 5,
     fitWidth: true
 });
