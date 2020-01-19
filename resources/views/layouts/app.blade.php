@@ -23,6 +23,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+      <!--Iconfonts-->
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -52,27 +55,35 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            @if(session('flash_message'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
+                            </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                        @if(session('flash_message'))
                             <div class="alert">
                               {{session('flash_message')}}
                             </div>
                             @endif
                         @else
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
+                            <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
                           </li>
-                          <!--
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
                           </li>
-                          -->
                           <li class="nav-item">
-                              <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
+                            <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
+                          </li>
+
+                          <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}">{{__('Logout')}}</a>
                           </li>
 
 
@@ -100,9 +111,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
             @yield('content')
-        </main>
     </div>
 
 
@@ -119,7 +128,7 @@ $(function() {
     },1000);
 	setTimeout(function(){
 		$('.start').fadeOut(500);
-	},2800); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+	},2000); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
 });
       
 
@@ -127,9 +136,11 @@ $(function() {
 var $each_posts = $('.each_posts').masonry({
   // options
     itemSelector: '.each_post',
-    columnWidth: 10
+    columnWidth: 10,
+    gutter: 5,
+    fitWidth: true
 });
-// layout Masonry after each image loads
+// layout Masonry after each image loads （imagesLoaded）
 $each_posts.imagesLoaded().progress( function() {
   $each_posts.masonry('layout');
 });

@@ -71,7 +71,7 @@
     <div class="form-tw__container">
         <h2>ツイッターアカウントで登録/ログインする</h2>
         <a href="auth/twitter"><button>Twitter</button></a>
-        <p>ツイッターアカウントがあれば、本サービスでのEメール登録は不要です。</p>
+        <p>ツイッターアカウントがあれば、<br>本サービスでのEメール登録は不要です。</p>
     </div>
 </section>
 

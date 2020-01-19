@@ -8,7 +8,7 @@
 @endif
 　
 
-<div class="container">
+<div>
 
   <h1><?php if($keyword)
   {
@@ -64,12 +64,11 @@
                         <img src ="../{{ $post_image }}" class="img-fluid image-s image_active" alt="Responsive image">
                         <div class="mask">
                           <div class="caption">
-                              {{ $post->title }}<br>
-                              <a href="{{route('posts.show',$post->id) }}" class="btn badge-warning each_post__btn">{{ __('See post')}}</a>
+                              <a href="{{route('posts.show',$post->id) }}">{{ $post->title }}</a>
                           </div>
                         </div>
                         </div>
-                        <div class="card-body">
+                        <div>
                           <p class="ol_badge badge-pill badge-success js-category each_post__btn">{{ $post->category->category_name }}</p>
                           <span style="display:none;" class="js-post_data">
                             {{ $post->created_at }}

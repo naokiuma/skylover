@@ -1751,6 +1751,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['morning', 'daytime', 'night'],
   data: function data() {
@@ -37188,18 +37190,26 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "c-category__wrapper" }, [
     _c("div", { staticClass: "c-category__btn-wrapper" }, [
-      _c("section", [
-        _c("h2", { on: { click: _vm.show_morning } }, [_vm._v("Morning")])
+      _c("section", { staticClass: "c-category__btn" }, [
+        _c("h2", { staticClass: "choice", on: { click: _vm.show_morning } }, [
+          _vm._v("Morning")
+        ])
       ]),
       _vm._v(" "),
-      _c("section", [
-        _c("h2", { on: { click: _vm.show_daytime } }, [_vm._v("Daytime")])
+      _c("section", { staticClass: "c-category__btn" }, [
+        _c("h2", { staticClass: "choice", on: { click: _vm.show_daytime } }, [
+          _vm._v("Daytime")
+        ])
       ]),
       _vm._v(" "),
-      _c("section", [
-        _c("h2", { on: { click: _vm.show_night } }, [_vm._v("Night")])
+      _c("section", { staticClass: "c-category__btn" }, [
+        _c("h2", { staticClass: "choice", on: { click: _vm.show_night } }, [
+          _vm._v("Night")
+        ])
       ])
     ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "space" }),
     _vm._v(" "),
     _c("section", { staticClass: "c-category__posts" }, [
       _c(

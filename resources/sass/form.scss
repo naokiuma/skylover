@@ -1,9 +1,15 @@
+$res-max-width:768px;
+
 .form__wrapper{
     width: 90%;
     height: 85vh;
     display: flex;
     justify-content: space-around;
     margin: auto;
+    @media screen and (max-width: $res-max-width){
+        width: 100%;
+        display: block;
+    }
 
 }
 .form-top{
@@ -13,6 +19,10 @@
 .form__container{
     width: 40%;
     background-color: rgba(0, 0, 0, 0.03);
+    @media screen and (max-width: $res-max-width){
+        width: 100%;
+        margin-bottom: 50px;
+        }
     h2{
         text-align: center;
         padding: 20px;
@@ -33,6 +43,10 @@
     width: 40%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.03);
+    @media screen and (max-width: $res-max-width){
+        width: 100%;
+        margin-bottom: 50px;
+        }
     h2{
         text-align: center;
         padding: 20px;

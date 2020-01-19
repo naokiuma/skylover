@@ -19,7 +19,7 @@ class PostsController extends Controller
 {
   public function index (){
     $posts = Post::all();
-    Log::debug(print_r("結果だよ".$posts, true));
+    //Log::debug(print_r("結果だよ".$posts, true));
     //変数に値を渡したい場合第二引数で設定。この場合、postsに値が入る
     //なお、変数に同じ値を入れる設定としてcombineもあり。その場合 ('drills.index',combine('drills'));となる。
 

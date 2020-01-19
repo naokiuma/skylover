@@ -13,6 +13,7 @@ $res-max-width:768px;
 
 html{
     font-size: 80.5%;
+    font-family: "M PLUS Rounded 1c";
 }
 
 body{
@@ -51,13 +52,145 @@ li{
       font-size:120px;
       color: #1da1f2;
     }
-
-
-
   }
 }
 
+/*ビルボードの表示*/
+.top-billbord{
+  height: 90vh;
+  width: 100%;
+  background-image: url(../img/skytop.jpg);
+  background-size: cover;
+  h1{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 200px;
+    color: black;
+    text-shadow: 2px 2px white;
+    font-family: "M PLUS Rounded 1c";
+    @media screen and (max-width: $res-max-width){
+      font-size: 30px;
+      }
+  }
+  p{
+    font-size: 20px;
+    text-align: center;
+    margin: 30px auto;
+    line-height: 40px;
+    color:black;
+    text-shadow: 2px 2px white;
+    font-family: "M PLUS Rounded 1c";
+    @media screen and (max-width: $res-max-width){
+      font-size: 16px;
+      }
+    
+  }
 
+}
+
+
+.top-explain{
+  width: 100;
+  height: 500px;
+  @media screen and (max-width: $res-max-width){
+    height: auto;
+    }
+  h2{
+    text-align: center;
+    margin: 100px;
+    font-size: 40px;
+    @media screen and (max-width: $res-max-width){
+      margin: 50px auto;
+      font-size: 25px;
+      }
+  }
+}
+
+.top-posts{
+  text-align: center;
+  margin:100px auto 30px auto;
+  font-size: 40px;
+  @media screen and (max-width: $res-max-width){
+    margin: 50px auto 20px auto;
+    font-size:25px;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+}
+.top-posts-p{
+  text-decoration: none;
+  color:black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.step{
+  &__wrapper{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    @media screen and (max-width: $res-max-width){
+      display: block;
+      }
+  }
+  &__signup{
+    width: 30%;
+    @media screen and (max-width: $res-max-width){
+      width: 100%;
+      margin-bottom: 50px;
+      }
+    h3{
+      font-size: 20px;
+      margin: 10px;
+    }
+    .fa-twitter{
+      font-size: 150px;
+      color: rgb(29, 161, 242);
+    }
+    p{
+      margin-top: 5px;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+  &__photo{
+    width: 30%;
+    @media screen and (max-width: $res-max-width){
+      width: 100%;
+      margin-bottom: 50px;
+      }
+    h3{
+      font-size: 20px;
+      margin: 10px;
+    }
+    img{
+      width: 80%;
+      margin: auto;
+      border-radius: 10%;
+    }
+    }
+  &__post{
+    width: 30%;
+    @media screen and (max-width: $res-max-width){
+      width: 100%;
+      margin-bottom: 50px;
+      }
+    h3{
+      font-size: 20px;
+      margin: 10px;
+    }
+    img{
+      width: 80%;
+      margin: auto;
+      border-radius: 10%;
+    }
+  }
+
+  
+}
 
 .ol_badge {
   display: inline-block;
@@ -79,24 +212,58 @@ li{
   letter-spacing: 1px;
 }
 
+.top-eachposts{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.top-eachpost{
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  width: 20%;
+  margin: 5px;
+  @media screen and (max-width: $res-max-width){
+    width: 30%;
+    margin: 1px;
+    }
+}
+
 .each_posts{
   width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 .each_post{
-  background-color: #d8e7f0;
-  padding: 2px;
   text-align: center;
   transition: 0.3s ease-in-out;
   width: 20%;
+  margin: 5px;
+  @media screen and (max-width: $res-max-width){
+    width: 45%;
+    margin: 1px;
+    }
 }
+
 
 .each_post:nth-child(even){
-  width: 10%;
+  width: 15%;
+  @media screen and (max-width: $res-max-width){
+    width: 45%;
+    }
 }
 
+.each_post__btn{
+  margin-left: 4%;
+  width: 50%;
+  color: white;
+  @media screen and (max-width: $res-max-width){
+    width: 100%;
+    }
+}
 
 
 .top_title{
@@ -105,13 +272,7 @@ li{
     }
 }
 
-.each_post__btn{
-  margin-left: 4%;
-  width: 80%;
-  @media screen and (max-width: $res-max-width){
-    width: 100%;
-    }
-}
+
 
 
 .img_whrapper{
@@ -194,7 +355,7 @@ li{
 }
 .image-m{
   width: 940px;
-  height: 600px;
+  //height: 600px;
   @media screen and (max-width: $res-max-width){
     width: auto;
     height:auto;
@@ -261,6 +422,24 @@ li{
   height: 109px;
 }
 
+
+
+.category__bg::before{
+  content:"";
+  display: block;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+  width:100%;
+  height:100vh;
+  background-image: url(../img/sky_cloud.jpg);
+  background-size: cover;
+}
+.choice{
+  line-height: 100px;
+  height: 100%;
+}
 .c-category{
     &__wrapper{
         width: 100%;
@@ -268,39 +447,76 @@ li{
     &__btn-wrapper{
         justify-content:space-around;
         display: flex;
+        height: 100px;
+        background: white;
+    &__btn{
+      width : calc(100% / 3);
+
+      
+    }    
     }
     &__posts{
         width:100%;
-        display:flex;
-        justify-content:space-around;
         text-align: center;
-        img{
-            width:100%;
-            @media screen and (max-width: $res-max-width){
-              width: 80%;
-              }
-            
-        }
     }
     &__header{
-        width: 30%;
-        margin: 15px;
+        width: 50%;
+        padding-top: 50px;
+        float: left;
+        height: 60vh;
         @media screen and (max-width: $res-max-width){
-          width: 100%;
+          width: 50%;
+          height: 40vh;
           }
+        h4{
+          color: white;
+          font-size:20px;
+        }
         ul{
           margin-top: 20px;
         }
+        img{
+          width: 70%;
+          border: 10px solid black;
+        }
     }
     &__morning{
-        background-color:#e88d4b47;
+        background-color:#b0704275;
+        overflow: hidden;
+        ul{
+          padding: 0;
+        }
+        
     }
     &__daytime{
-        background-color: skyblue;
+      overflow: hidden;
+        ul{
+          padding: 0;
+        }
     }
     &__night{
-        background-color: #00008b6e;
+        background-color: #44449763;
+        overflow: hidden;
+        ul{
+          padding: 0;
+        }
     }
 
 
+}
+
+
+@keyframes gradationMorning {
+  0% { background-color: #6CB8FF; }
+  50% { background-color: rgba(179, 187, 131, 0.801); }
+  100% { background-color: #e88d4b47 }
+  }
+
+.space{
+  height: 40px;
+  width: 100%;
+  background: white;
+  @media screen and (max-width: $res-max-width){
+    height: 20px;
+    }
 }

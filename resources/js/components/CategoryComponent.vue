@@ -2,18 +2,20 @@
     <div class="c-category__wrapper">
             <div class="c-category__btn-wrapper">
 
-                <section>
-                    <h2 v-on:click="show_morning">Morning</h2>
+                <section class="c-category__btn">
+                    <h2 class="choice" v-on:click="show_morning">Morning</h2>
                 </section>
 
-                <section>
-                    <h2 v-on:click="show_daytime">Daytime</h2>
+                <section class="c-category__btn">
+                    <h2 class="choice" v-on:click="show_daytime">Daytime</h2>
                 </section>
 
-                <section>
-                    <h2 v-on:click="show_night">Night</h2>
+                <section class="c-category__btn">
+                    <h2 class="choice" v-on:click="show_night">Night</h2>
                 </section>
             </div>
+
+            <div class="space"></div>
 
             <section class="c-category__posts">
 
