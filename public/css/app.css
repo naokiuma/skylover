@@ -10757,7 +10757,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .each_post {
-    width: 45%;
+    width: 180px;
     margin: 1px;
   }
 }
@@ -10767,7 +10767,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .each_post:nth-child(even) {
-    width: 45%;
+    width: 200px;
   }
 }
 
@@ -10778,7 +10778,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .each_post__btn {
-    width: 100%;
+    width: 60%;
   }
 }
 

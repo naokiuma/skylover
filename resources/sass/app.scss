@@ -243,7 +243,7 @@ li{
   width: 20%;
   margin: 5px;
   @media screen and (max-width: $res-max-width){
-    width: 45%;
+    width: 180px;
     margin: 1px;
     }
 }
@@ -252,7 +252,7 @@ li{
 .each_post:nth-child(even){
   width: 15%;
   @media screen and (max-width: $res-max-width){
-    width: 45%;
+    width: 200px;
     }
 }
 
@@ -261,7 +261,7 @@ li{
   width: 50%;
   color: white;
   @media screen and (max-width: $res-max-width){
-    width: 100%;
+    width: 60%;
     }
 }
 
