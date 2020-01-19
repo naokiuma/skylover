@@ -10547,7 +10547,7 @@ li {
 .top-billbord {
   height: 90vh;
   width: 100%;
-  background-image: url(img/skytop.jpg);
+  background-image: url(..img/skytop.jpg);
   background-size: cover;
 }
 .top-billbord h1 {
@@ -10942,7 +10942,7 @@ li {
   z-index: -1;
   width: 100%;
   height: 100vh;
-  background-image: url(img/sky_cloud.jpg);
+  background-image: url(..img/sky_cloud.jpg);
   background-size: cover;
 }
 
@@ -10983,6 +10983,9 @@ li {
 .c-category__header h4 {
   color: white;
   font-size: 20px;
+}
+.c-category__header p {
+  color: white;
 }
 .c-category__header ul {
   margin-top: 20px;
