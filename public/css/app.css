@@ -10547,7 +10547,7 @@ li {
 .top-billbord {
   height: 90vh;
   width: 100%;
-  background-image: url(..img/skytop.jpg);
+  background-image: url(../img/skytop.jpg);
   background-size: cover;
 }
 .top-billbord h1 {
@@ -10942,7 +10942,7 @@ li {
   z-index: -1;
   width: 100%;
   height: 100vh;
-  background-image: url(..img/sky_cloud.jpg);
+  background-image: url(../img/sky_cloud.jpg);
   background-size: cover;
 }
 
