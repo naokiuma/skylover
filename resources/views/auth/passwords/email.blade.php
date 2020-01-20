@@ -37,7 +37,7 @@
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
-                        </div>
+                        </div>　
                     </form>
                 </div>
             </div>
