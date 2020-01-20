@@ -11,7 +11,9 @@
     <p>空は、いつも違う顔を見せます。<br>
        あなただけが見た空を世界でシェアしよう。
     </p>
-    <button class="top-billbord_btn"><a href="{{ route('register') }}">早速始める</a></button>
+    @guest
+    <button class="top-billbord_btn"><a href="{{ route('register') }}">早速登録する</a></button>
+    @endguest
     
 
 </section>
