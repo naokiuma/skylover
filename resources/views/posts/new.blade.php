@@ -41,16 +41,6 @@
     </div>
 
 
-
-<!--画像投稿オリジナル
-    <div class="form-group">
-      <span class="font-m">画像投稿</span>
-    <div class="form-image_url">
-      <input type="file" name="image_url" value="{{old('image_url')}}">
-    </div>
-    </div>
--->
-
 <!--カテゴリネーム-->
     <div class="form-group category-group">
     <label for="category_name" class="font-s">{{__('Category')}}</label><br>
