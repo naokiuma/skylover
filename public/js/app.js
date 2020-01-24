@@ -49506,13 +49506,19 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./click_change */ "./resources/js/click_change.js"); //require('./category_search');
+__webpack_require__(/*! ./click_change */ "./resources/js/click_change.js");
+
+__webpack_require__(/*! ./fadein */ "./resources/js/fadein.js");
+
+__webpack_require__(/*! ./masonry */ "./resources/js/masonry.js");
+
+__webpack_require__(/*! ./draganddrop */ "./resources/js/draganddrop.js"); //require('./category_search');
 //require('./form_validate.js')
 
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('category-component', __webpack_require__(/*! ./components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue")["default"]);
-/**
+/**Evelest1
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
@@ -49692,6 +49698,96 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/draganddrop.js":
+/*!*************************************!*\
+  !*** ./resources/js/draganddrop.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*ドロッププレビュー */
+var $dropArea = $('.drag-drop-area'); //ドロップエリア
+
+var $fileInput = $('.drag-space'); //実際にチェンジするエリア
+
+$dropArea.on('dragover', function (e) {
+  e.stopPropagation();
+  e.preventDefault();
+  $(this).css('border', '3px #ccc dashed');
+});
+$dropArea.on('dragleave', function (e) {
+  e.stopPropagation();
+  e.preventDefault();
+  $(this).css('border', 'none');
+});
+$fileInput.on('change', function (e) {
+  var file = this.files[0],
+      reader = new FileReader(),
+      $preview = $('.preview-cover'); // 表示する所
+
+  console.log($preview); // 画像ファイル以外は処理停止
+
+  if (file.type.indexOf("image") < 0) {
+    return false;
+  } // ファイル読み込みが完了した際に発火するイベントを登録
+
+
+  reader.onload = function (event) {
+    // .prevewの領域の中にロードした画像を表示
+    $preview.attr('src', event.target.result);
+    $preview.attr('style', "display:block");
+  };
+
+  reader.readAsDataURL(file);
+});
+
+/***/ }),
+
+/***/ "./resources/js/fadein.js":
+/*!********************************!*\
+  !*** ./resources/js/fadein.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*fadeinロゴ*/
+$(function () {
+  setTimeout(function () {
+    $('.start h2').fadeIn(1600);
+  }, 500); //0.5秒後にロゴをフェードイン!
+
+  setTimeout(function () {
+    $('.start span').fadeIn(1600);
+  }, 1000);
+  setTimeout(function () {
+    $('.start').fadeOut(500);
+  }, 2300); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+});
+
+/***/ }),
+
+/***/ "./resources/js/masonry.js":
+/*!*********************************!*\
+  !*** ./resources/js/masonry.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// init Masonry
+var $each_posts = $('.each_posts').masonry({
+  // options
+  itemSelector: '.each_post',
+  columnWidth: 50,
+  gutter: 5,
+  fitWidth: true
+}); // layout Masonry after each image loads （imagesLoaded）
+
+$each_posts.imagesLoaded().progress(function () {
+  $each_posts.masonry('layout');
+});
 
 /***/ }),
 

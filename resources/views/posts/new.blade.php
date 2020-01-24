@@ -31,16 +31,28 @@
     </div>
 
 
-<!--画像投稿-->
+  <!--画像投稿オリジナル-->
+    <div class="form-group">
+      <span class="font-m">画像投稿</span>
+    <div class="form-image_url drag-drop-area"><!--ドラッグエリア-->
+      <input id="fileInput" class="drag-space" type="file" value="{{old('image_url')}}" name="image_url">
+      <img class="preview-cover"></div>
+    </div>
+    </div>
+
+
+
+<!--画像投稿オリジナル
     <div class="form-group">
       <span class="font-m">画像投稿</span>
     <div class="form-image_url">
       <input type="file" name="image_url" value="{{old('image_url')}}">
     </div>
     </div>
+-->
 
 <!--カテゴリネーム-->
-    <div class="form-group">
+    <div class="form-group category-group">
     <label for="category_name" class="font-s">{{__('Category')}}</label><br>
       <select class="" name="category_id">
         <option value="1" selected>朝の空</option>
@@ -48,13 +60,17 @@
         <option value="3">夜の空</option>
       </select>
     </div>
-
+    <div class="submit-btn">
     <button type="submit" class="btn btn-primary">
                 {{__('Post')}}
     </button>
+    </div>
+
+
 </form>
 
 </div>
 </section>
+
 
 @endsection

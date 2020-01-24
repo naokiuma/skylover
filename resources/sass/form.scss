@@ -75,3 +75,42 @@ $res-max-width:768px;
     }
 
 }
+
+.category-group{
+    text-align: center;
+}
+.submit-btn{
+    text-align: center;
+}
+
+/*-----------------ドラッグスペース--------*/
+.drag-drop-area{
+    height: 400px;
+    width: 500px;
+    margin: auto;
+    position: relative;
+    background-color: #57ecd73b;
+    @media screen and (max-width: $res-max-width){
+        height: 200px;
+        width: 300px;
+        }
+}
+.drag-space{
+    width: 100%;
+    height: 100%;
+    background-color: #c0dbe100;
+    font-size: 12px;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.preview-cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}

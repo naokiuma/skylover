@@ -115,38 +115,6 @@
     </div>
 
 
-
-
-<script>
-/*fadeinロゴ*/
-$(function() {
-	setTimeout(function(){
-		$('.start h2').fadeIn(1600);
-    },500); //0.5秒後にロゴをフェードイン!
-    setTimeout(function(){
-        $('.start span').fadeIn(1600);
-    },1000);
-	setTimeout(function(){
-		$('.start').fadeOut(500);
-	},2300); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
-});
-      
-
-// init Masonry
-var $each_posts = $('.each_posts').masonry({
-  // options
-    itemSelector: '.each_post',
-    columnWidth: 50,
-    gutter: 5,
-    fitWidth: true
-});
-// layout Masonry after each image loads （imagesLoaded）
-$each_posts.imagesLoaded().progress( function() {
-  $each_posts.masonry('layout');
-});
- 
-
-
 </script>
 </body>
 </html>
