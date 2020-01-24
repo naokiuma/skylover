@@ -49508,11 +49508,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./click_change */ "./resources/js/click_change.js");
 
-__webpack_require__(/*! ./fadein */ "./resources/js/fadein.js");
-
-__webpack_require__(/*! ./masonry */ "./resources/js/masonry.js");
-
-__webpack_require__(/*! ./draganddrop */ "./resources/js/draganddrop.js"); //require('./category_search');
+__webpack_require__(/*! ./fadein */ "./resources/js/fadein.js"); //require('./masonry');
+//require('./draganddrop');
+//require('./category_search');
 //require('./form_validate.js')
 
 
@@ -49701,51 +49699,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/draganddrop.js":
-/*!*************************************!*\
-  !*** ./resources/js/draganddrop.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*ドロッププレビュー */
-var $dropArea = $('.drag-drop-area'); //ドロップエリア
-
-var $fileInput = $('.drag-space'); //実際にチェンジするエリア
-
-$dropArea.on('dragover', function (e) {
-  e.stopPropagation();
-  e.preventDefault();
-  $(this).css('border', '3px #ccc dashed');
-});
-$dropArea.on('dragleave', function (e) {
-  e.stopPropagation();
-  e.preventDefault();
-  $(this).css('border', 'none');
-});
-$fileInput.on('change', function (e) {
-  var file = this.files[0],
-      reader = new FileReader(),
-      $preview = $('.preview-cover'); // 表示する所
-
-  console.log($preview); // 画像ファイル以外は処理停止
-
-  if (file.type.indexOf("image") < 0) {
-    return false;
-  } // ファイル読み込みが完了した際に発火するイベントを登録
-
-
-  reader.onload = function (event) {
-    // .prevewの領域の中にロードした画像を表示
-    $preview.attr('src', event.target.result);
-    $preview.attr('style', "display:block");
-  };
-
-  reader.readAsDataURL(file);
-});
-
-/***/ }),
-
 /***/ "./resources/js/fadein.js":
 /*!********************************!*\
   !*** ./resources/js/fadein.js ***!
@@ -49765,28 +49718,6 @@ $(function () {
   setTimeout(function () {
     $('.start').fadeOut(500);
   }, 2300); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
-});
-
-/***/ }),
-
-/***/ "./resources/js/masonry.js":
-/*!*********************************!*\
-  !*** ./resources/js/masonry.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// init Masonry
-var $each_posts = $('.each_posts').masonry({
-  // options
-  itemSelector: '.each_post',
-  columnWidth: 50,
-  gutter: 5,
-  fitWidth: true
-}); // layout Masonry after each image loads （imagesLoaded）
-
-$each_posts.imagesLoaded().progress(function () {
-  $each_posts.masonry('layout');
 });
 
 /***/ }),

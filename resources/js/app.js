@@ -7,8 +7,8 @@
 require('./bootstrap');
 require('./click_change');
 require('./fadein');
-require('./masonry');
-require('./draganddrop');
+//require('./masonry');
+//require('./draganddrop');
 //require('./category_search');
 //require('./form_validate.js')
 
