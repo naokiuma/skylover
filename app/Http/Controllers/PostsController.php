@@ -16,6 +16,7 @@ use App\Category;
 class PostsController extends Controller
 {
   public function index (){
+    //$users = Post::latest()->get();でも同じ
    $posts = Post::orderBy('created_at', 'desc')->get();
    // $posts = Post::all()
    Log::debug(print_r("結果だよ".$posts, true));

@@ -11032,6 +11032,7 @@ li {
   padding-top: 50px;
   float: left;
   height: 60vh;
+  margin-bottom: 50px;
 }
 @media screen and (max-width: 768px) {
   .c-category__header {
