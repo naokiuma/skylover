@@ -12,7 +12,7 @@
        あなただけが見た空を世界でシェアしよう。
     </p>
     @guest
-    <button class="top-billbord_btn"><a href="{{ route('register') }}">早速登録する</a></button>
+    <a href="{{ route('register') }}" class="top-billbord_btn">早速登録する</a>
     @endguest
     
 

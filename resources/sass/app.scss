@@ -62,12 +62,38 @@ li{
   height: 50px;
   margin: 50px 20px;
   font-size: 16px;
-  a{
-    text-decoration: none;
-    color:black;
+  position: relative;
+  display: inline-block;
+  line-height: 50px;
+  background-color:white;
+  color:black;
+  box-shadow: 2px 2px;
 
-  }
+}
 
+.top-billbord_btn::before{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background-color: #1da1f2b8;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform .3s;
+  z-index: -1;
+}
+
+.top-billbord_btn:hover{
+  text-decoration: none;
+  transform: scale(1, 1);
+  color: black;
+}
+
+.top-billbord_btn:hover::before{
+  transform-origin: left top;
+  transform: scale(1, 1);
 }
 
 
@@ -390,10 +416,10 @@ li{
 }
 
 .font-s{
-  font-size: 15px;
+  font-size: 16px;
 }
 .font-m{
-  font-size: 25px;
+  font-size: 20px;
   display: inline-block;
   
 }
@@ -526,10 +552,13 @@ li{
           padding: 0;
         }
     }
-
-
 }
 
+
+.post-warn{
+  font-size: 16px;
+  color:red;
+}
 
 @keyframes gradationMorning {
   0% { background-color: #6CB8FF; }

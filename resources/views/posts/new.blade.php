@@ -3,6 +3,7 @@
 @section('content')
 
 <section class="jumbotron">
+<!--
 @if(count($errors) > 0)
  <div class="error">
    <ul>
@@ -12,7 +13,7 @@
    </ul>
  </div>
 @endif
-
+-->
 
 <div class="col-sm-12">
 <form method="POST" action="{{ route('posts.create')}}" class="billbord" enctype="multipart/form-data" >
@@ -21,10 +22,11 @@
 <!--タイトル-->
     <div class="form-group">
     <label for="title" class="font-m">{{ __('Title') }}</label><br>
-      <input type="text"name="title" value="{{old('title')}}"
+      <input type="text" name="title" value="{{old('title')}}"
       autocomplete="title" autofocus>
+      <br>
       @if ($errors->has('title'))
-      <span class="" role="alert">
+      <span class="post-warn" role="alert">
         <strong>{{ __('タイトルを入力してください。') }}</strong>
       </span>
       @endif
@@ -38,6 +40,11 @@
       <input id="fileInput" class="drag-space" type="file" value="{{old('image_url')}}" name="image_url">
       <img class="preview-cover"></div>
     </div>
+      @if ($errors->has('image_url'))
+      <span class="post-warn" role="alert">
+        <strong>{{ __('画像が設定されていません。') }}</strong>
+      </span>
+      @endif
     </div>
 
 

@@ -10592,10 +10592,45 @@ li {
   height: 50px;
   margin: 50px 20px;
   font-size: 16px;
-}
-.top-billbord_btn a {
-  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  line-height: 50px;
+  background-color: white;
   color: black;
+  box-shadow: 2px 2px;
+}
+
+.top-billbord_btn::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background-color: #1da1f2b8;
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  z-index: -1;
+}
+
+.top-billbord_btn:hover {
+  text-decoration: none;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  color: black;
+}
+
+.top-billbord_btn:hover::before {
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 
 .top-billbord {
@@ -10940,11 +10975,11 @@ li {
 }
 
 .font-s {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .font-m {
-  font-size: 25px;
+  font-size: 20px;
   display: inline-block;
 }
 
@@ -11076,6 +11111,11 @@ li {
 }
 .c-category__night ul {
   padding: 0;
+}
+
+.post-warn {
+  font-size: 16px;
+  color: red;
 }
 
 @-webkit-keyframes gradationMorning {

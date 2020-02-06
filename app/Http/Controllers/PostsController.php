@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB; 
+use App\Http\Requests\HelloRequest;
 
 use App\Post;
 use App\Category;
@@ -34,17 +35,19 @@ class PostsController extends Controller
 
   //------------------新規作成post
 
-  public function create(Request $request)
+  public function create(HelloRequest $request)
   {
     $post = new Post;
     $time = date("YmdHis");
-    //バリデート（あとでミドルウェアに移す）
-    $this->validate($request,[
-      'title' => 'required|string|max:255',
-      'category_id' => 'required|string|max:255',
-      'image_url' => 'required|file|image|max:10240', 
-    ]);
-    //元々のもの
+    //バリデート（あとでフォームリクエストに移す）
+    //$this->validate($request,[
+    //  'title' => 'required|string|max:255',
+    //  'category_id' => 'required|string|max:255',
+    //  'image_url' => 'required|file|image|max:10240', 
+    //]);
+
+
+    //元々のSQLもの
     //Auth::user()-posts()->save($drill->fill($request->all()));
     //storage/app/publicの中に保管
     $post->image_url = $request->image_url->storeAs('public/post_images', $time.'_'.Auth::user()->id.'.jpg');
@@ -55,6 +58,8 @@ class PostsController extends Controller
     //$post->fill($request->all())->save();
     return redirect('/')->with('flash_message',__('Registered.'));
   }
+
+
 
 //------------------閲覧ページ
 
