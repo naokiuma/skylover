@@ -131,7 +131,7 @@ li{
 }
 
 .top-explain{
-  width: 100;
+  width: 80%;
   height: 500px;
   @media screen and (max-width: $res-max-width){
     height: auto;
@@ -151,6 +151,7 @@ li{
   text-align: center;
   margin:100px auto 30px auto;
   font-size: 40px;
+  width: 80%;
   @media screen and (max-width: $res-max-width){
     margin: 50px auto 20px auto;
     font-size:25px;
@@ -254,7 +255,7 @@ li{
 }
 
 .top-eachposts{
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

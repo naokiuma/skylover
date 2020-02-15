@@ -10670,7 +10670,7 @@ li {
 }
 
 .top-explain {
-  width: 100;
+  width: 80%;
   height: 500px;
 }
 @media screen and (max-width: 768px) {
@@ -10694,6 +10694,7 @@ li {
   text-align: center;
   margin: 100px auto 30px auto;
   font-size: 40px;
+  width: 80%;
 }
 @media screen and (max-width: 768px) {
   .top-posts {
@@ -10806,7 +10807,7 @@ li {
 }
 
 .top-eachposts {
-  width: 100%;
+  width: 80%;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
