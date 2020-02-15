@@ -10695,6 +10695,7 @@ li {
   margin: 100px auto 30px auto;
   font-size: 40px;
   width: 80%;
+  margin: auto;
 }
 @media screen and (max-width: 768px) {
   .top-posts {
@@ -10810,6 +10811,7 @@ li {
   width: 80%;
   display: -webkit-box;
   display: flex;
+  margin: auto;
   -webkit-box-pack: justify;
           justify-content: space-between;
   flex-wrap: wrap;
