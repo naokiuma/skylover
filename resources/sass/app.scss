@@ -133,6 +133,7 @@ li{
 .top-explain{
   width: 80%;
   height: 500px;
+  margin: auto;
   @media screen and (max-width: $res-max-width){
     height: auto;
     }
