@@ -3,6 +3,15 @@
 @section('content')
 
 <h1 class="form-top">{{ __('Login') }}</h1>
+@if(count($errors) > 0)
+ <div class="error">
+   <ul>
+     @foreach($errors->all() as $error)
+       <li>{{ $error }}</li>
+     @endforeach
+   </ul>
+ </div>
+@endif
 
 <section class="form__wrapper">
 <div class="form__container">

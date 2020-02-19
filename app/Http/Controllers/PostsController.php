@@ -11,7 +11,7 @@ use App\Http\Requests\HelloRequest;
 
 use App\Post;
 use App\Category;
-//これ参考 https://readouble.com/laravel/5.7/ja/queries.html
+//参考 https://readouble.com/laravel/5.7/ja/queries.html
 
 
 class PostsController extends Controller
@@ -20,7 +20,7 @@ class PostsController extends Controller
     //$users = Post::latest()->get();でも同じ
    $posts = Post::orderBy('created_at', 'desc')->get();
    // $posts = Post::all()
-   Log::debug(print_r("結果だよ".$posts, true));
+   //Log::debug(print_r("結果".$posts, true));
    //変数に値を渡したい場合第二引数で設定。この場合、postsに値が入る
    //なお、変数に同じ値を入れる設定としてcombineもあり。その場合 ('drills.index',combine('drills'));となる。
     return view ('top',compact('posts'));
@@ -39,13 +39,6 @@ class PostsController extends Controller
   {
     $post = new Post;
     $time = date("YmdHis");
-    //バリデート（あとでフォームリクエストに移す）
-    //$this->validate($request,[
-    //  'title' => 'required|string|max:255',
-    //  'category_id' => 'required|string|max:255',
-    //  'image_url' => 'required|file|image|max:10240', 
-    //]);
-
 
     //元々のSQLもの
     //Auth::user()-posts()->save($drill->fill($request->all()));
@@ -58,7 +51,6 @@ class PostsController extends Controller
     //$post->fill($request->all())->save();
     return redirect('/')->with('flash_message',__('Registered.'));
   }
-
 
 
 //------------------閲覧ページ

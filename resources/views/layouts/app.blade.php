@@ -82,10 +82,6 @@
                             <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
                           </li>
 
-                          <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}">{{__('Logout')}}</a>
-                          </li>
-
 
 
                             <li class="nav-item dropdown">
