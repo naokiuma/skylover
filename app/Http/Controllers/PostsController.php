@@ -35,8 +35,7 @@ class PostsController extends Controller
 
   //------------------新規作成post
 
-  public function create(HelloRequest $request)
-  {
+  public function create(Request $request){
     $post = new Post;
     $time = date("YmdHis");
 
@@ -61,11 +60,11 @@ public function show($id){
   if(!ctype_digit($id)){
     return redirect('/')->with('flash_message',__('Invalid operation was performed.'));
   }
-  $user = Auth::user();
+        $user = Auth::user();
   $post = Post::find($id);
-  
+    
   return view('posts.show',compact('post','user'));
-  }
+}
 
 //------------------削除アクション
 
