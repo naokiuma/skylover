@@ -49508,32 +49508,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./click_change */ "./resources/js/click_change.js");
 
-__webpack_require__(/*! ./fadein */ "./resources/js/fadein.js"); //require('./masonry');
+__webpack_require__(/*! ./fadein */ "./resources/js/fadein.js");
+
+__webpack_require__(/*! ./drop_prev */ "./resources/js/drop_prev.js"); //require('./masonry');
 //require('./category_search');
 //require('./form_validate.js')
 
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('category-component', __webpack_require__(/*! ./components/CategoryComponent.vue */ "./resources/js/components/CategoryComponent.vue")["default"]);
-/**Evelest1
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-//Vue.component('form-component',require('./components/FormComponent.vue').default);
-//Vue.component('category-component',require('./component/CategoryComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new Vue({
   el: '#categoryapp'
 });
@@ -49695,6 +49678,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryComponent_vue_vue_type_template_id_3991b978___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/drop_prev.js":
+/*!***********************************!*\
+  !*** ./resources/js/drop_prev.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*ドロッププレビュー */
+var $dropArea = $('.drag-drop-area'); //ドロップエリア
+
+var $fileInput = $('.drag-space'); //実際にチェンジするエリア
+
+$dropArea.on('dragover', function (e) {
+  e.stopPropagation();
+  e.preventDefault();
+  $(this).css('border', '3px #ccc dashed');
+});
+$dropArea.on('dragleave', function (e) {
+  e.stopPropagation();
+  e.preventDefault();
+  $(this).css('border', 'none');
+});
+$fileInput.on('change', function (e) {
+  var file = this.files[0],
+      reader = new FileReader(),
+      $preview = $('.preview-cover'); // 表示する所
+
+  console.log($preview); // 画像ファイル以外は処理停止
+
+  if (file.type.indexOf("image") < 0) {
+    return false;
+  } // ファイル読み込みが完了した際に発火するイベントを登録
+
+
+  reader.onload = function (event) {
+    // .prevewの領域の中にロードした画像を表示
+    $preview.attr('src', event.target.result);
+    $preview.attr('style', "display:block");
+  };
+
+  reader.readAsDataURL(file);
+});
 
 /***/ }),
 

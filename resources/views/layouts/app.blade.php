@@ -11,25 +11,23 @@
 
     <title>Sky Light Lover</title>
 
-    <!-- Scripts。ファイルとmasonaryとjquery -->
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script
 			  src="https://code.jquery.com/jquery-3.4.1.min.js"
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			  crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><!--imagesLoadedってやつ-->
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><!--imagesLoaded-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
-      <!--Iconfonts-->
+    <!--Iconfonts-->
     <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">
@@ -81,26 +79,15 @@
                           <li class="nav-item post-button">
                             <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
                           </li>
-
-
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                            >{{ __('Logout') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                          </li>
                         @endguest
                     </ul>
                 </div>
@@ -111,66 +98,36 @@
     </div>
 
 
-
-
+<footer class="footer"></footer>
 <script>
 
-/*
-// init Masonry
-
-var $each_posts = $('.each_posts').masonry({
-    // options
-      itemSelector: '.each_post',
-      columnWidth: 50,
-      gutter: 5,
-      fitWidth: true
-  });
-  // layout Masonry after each image loads （imagesLoaded）
-  $each_posts.imagesLoaded().progress( function() {
-    $each_posts.masonry('layout');
-  });
-  */
-  
-
-/*ドロッププレビュー */
-
-var $dropArea = $('.drag-drop-area');//ドロップエリア
-var $fileInput = $('.drag-space')//実際にチェンジするエリア
-
-$dropArea.on('dragover', function(e){
-  e.stopPropagation();
-  e.preventDefault();
-  $(this).css('border', '3px #ccc dashed');
-  });
-$dropArea.on('dragleave', function(e){
-  e.stopPropagation();
-  e.preventDefault();
-  $(this).css('border', 'none');
-  });
-
-$fileInput.on('change',function(e){
-    const file = this.files[0],
-          reader = new FileReader(),
-          $preview = $('.preview-cover'); // 表示する所
-          console.log($preview);
- 
-    // 画像ファイル以外は処理停止
-    if(file.type.indexOf("image") < 0){
-      return false;
-    }
-    // ファイル読み込みが完了した際に発火するイベントを登録
-    reader.onload = function(event) {
-        // .prevewの領域の中にロードした画像を表示
-        $preview.attr('src',event.target.result);
-        $preview.attr('style',"display:block");
-    };
- 
-    reader.readAsDataURL(file);
-});
-
 </script>
- 
 
+<
+
+<script>
+  var loop = setInterval(function(){
+    
+    //js-eachpost専用要素のクローンを作成
+    var clone = $(".js-eachpost:last").clone(true);
+    $(".slideThumbnail").animate({
+     "marginLeft":"25%"
+    },700,"swing",function(){
+      $(".js-eachpost:last").remove();
+      $(".slideThumbnail").animate({
+     "marginLeft":"0"
+    },0)
+      //クローンを最後に追加
+      clone.clone(true).insertBefore($(".js-eachpost:first"));
+    });
+
+
+  },3000);
+</script>
+
+
+
+  
 
 </body>
 </html>

@@ -18,13 +18,13 @@ class PostsController extends Controller
 {
   public function index (){
     //$users = Post::latest()->get();でも同じ
-   $posts = Post::orderBy('created_at', 'desc')->take(5)->get();
-   $test = Post::getnewposts();
+   $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
+   //$test = Post::getnewposts();
    // $posts = Post::all()
    //Log::debug(print_r("結果".$posts, true));
    //変数に値を渡したい場合第二引数で設定。この場合、postsに値が入る
    //なお、変数に同じ値を入れる設定としてcombineもあり。その場合 ('drills.index',combine('drills'));となる。
-    return view ('top',compact('posts','test'));
+    return view ('top',compact('posts'));
   }
 
 

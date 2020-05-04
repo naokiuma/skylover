@@ -10,11 +10,11 @@
 
 <div>
 
-  <h1><?php if($keyword)
+  <h2><?php if($keyword)
   {
     echo "検索結果:".$keyword;
   }
-  ?></h1>
+  ?></h2>
 
   <?php
  // var_dump($posts);
