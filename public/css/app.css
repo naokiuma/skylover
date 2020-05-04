@@ -10559,6 +10559,16 @@ li {
   list-style: none;
 }
 
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: skyblue;
+  -webkit-transition: ease;
+  transition: ease;
+}
+
 /*スタート時のコンテンツ*/
 .start {
   background: #FFF;
@@ -10714,6 +10724,9 @@ li {
   color: black;
   font-size: 16px;
   text-align: center;
+}
+.top-posts-p a {
+  color: black;
 }
 
 .step__wrapper {
@@ -10885,17 +10898,23 @@ li {
 
 .img_whrapper {
   width: 100%;
-  height: 100%;
   overflow: hidden;
   position: relative;
 }
 .img_whrapper .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+  width: 100%;
   font-size: 80%;
   text-align: center;
   color: #fff;
 }
 .img_whrapper .caption a {
   color: black;
+  background-color: #f5f5dc69;
 }
 .img_whrapper .mask {
   width: 100%;
@@ -10940,7 +10959,7 @@ li {
 */
 .img_whrapper:hover .mask {
   opacity: 1;
-  padding-top: 20%;
+  margin: auto;
 }
 
 .time_info {
@@ -10986,9 +11005,8 @@ li {
   font-size: 20px;
   display: inline-block;
 }
-
 .font-m::after {
-  border-bottom: solid 2px #f00;
+  border-bottom: solid 2px #2176bd;
   bottom: 0;
   content: "";
   display: block;

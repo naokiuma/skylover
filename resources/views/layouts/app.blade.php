@@ -78,7 +78,7 @@
                           <li class="nav-item">
                               <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
                           </li>
-                          <li class="nav-item">
+                          <li class="nav-item post-button">
                             <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
                           </li>
 
@@ -115,7 +115,9 @@
 
 <script>
 
+/*
 // init Masonry
+
 var $each_posts = $('.each_posts').masonry({
     // options
       itemSelector: '.each_post',
@@ -127,6 +129,7 @@ var $each_posts = $('.each_posts').masonry({
   $each_posts.imagesLoaded().progress( function() {
     $each_posts.masonry('layout');
   });
+  */
   
 
 /*ドロッププレビュー */

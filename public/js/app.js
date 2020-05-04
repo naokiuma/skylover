@@ -49509,7 +49509,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./click_change */ "./resources/js/click_change.js");
 
 __webpack_require__(/*! ./fadein */ "./resources/js/fadein.js"); //require('./masonry');
-//require('./draganddrop');
 //require('./category_search');
 //require('./form_validate.js')
 
@@ -49710,14 +49709,14 @@ __webpack_require__.r(__webpack_exports__);
 $(function () {
   setTimeout(function () {
     $('.start h2').fadeIn(1600);
-  }, 500); //0.5秒後にロゴをフェードイン!
+  }, 200); //0.5秒後にロゴをフェードイン!
 
   setTimeout(function () {
     $('.start span').fadeIn(1600);
-  }, 1000);
+  }, 800);
   setTimeout(function () {
     $('.start').fadeOut(500);
-  }, 2300); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+  }, 1500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
 });
 
 /***/ }),

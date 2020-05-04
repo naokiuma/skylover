@@ -12,11 +12,13 @@
        あなただけが見た空を世界でシェアしよう。
     </p>
     @guest
-    <a href="{{ route('register') }}" class="top-billbord_btn">早速登録する</a>
+    <a href="{{ route('register') }}" class="top-billbord_btn">さっそく登録する</a>
     @endguest
     
 
 </section>
+
+
 
 <section class="top-explain">
   <h2>3ステップで空を投稿しよう。</h2>
@@ -41,7 +43,7 @@
 
   </div>
 </section>
-
+<?php echo $test ?><!--ここですよ-->
 <h2 class="top-posts">投稿画像一覧</h2>
 <p class="top-posts-p"><a href="{{ route('posts.gallery') }}">もっと見る</a></p>
 
@@ -59,6 +61,7 @@
                           <a href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
                         </div>
                       </div>
+
                   </div>
 
                   </div>
