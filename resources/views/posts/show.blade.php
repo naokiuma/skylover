@@ -9,9 +9,6 @@
   //echo $post->user_id;
   ?>
 
-
-
-
   <div class="jumbotron-fluid">
     <div class="container billbord">
       <h3 class="display-6 top_title"><?php echo $post->title ?></h3>
@@ -36,5 +33,33 @@
 @endif
 
 </div>
+@if (Auth::check())
+    @if ($fav)
+    <form action="{{ route('favs.destroy',[$post->id,$fav->id]) }}" method="post" class="d-inline">
+      @csrf
+      <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>お気に入り済み</button>
+    </form>
+    @else
+    <form action="{{ route('favs.store',$post->id) }}" method="post" class="d-inline">
+      @csrf
+      <button class="btn" onclick='return confirm("お気に入りにしますか？");'>お気に入りにする</button>
+    </form>
+    @endif
+  @endif
+
+
 
 @endsection
+
+<script>
+
+const $postid = @json($post);
+const $favid = @json($fav);
+
+console.log($postid);
+console.log($favid);
+
+
+
+</script>
+

@@ -3,21 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
+use App\Fav;
 
 class Post extends Model
 {
     protected $guarded = ['id'];
 
     public function user(){
-      return $this->belongsTo('App\User');
+      return $this->belongsTo(User::class);
     }
 
     public function category(){
       return $this->belongsTo('App\Category');
     }
-/*
-    public static function getnewposts(){
-      return Post::orderBy('id','DESC')->take(3)->get();//最新の5件を得る
+
+    public function favs(){
+      return $this->hasMany('App\Fav');
+
     }
-    */
+
+    public function fav_by(){
+      return Fav::where('user_id',Auth::user()->id)->first();
+    }
+
 }

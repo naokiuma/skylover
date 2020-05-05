@@ -11,16 +11,16 @@ use App\Http\Requests\HelloRequest;
 
 use App\Post;
 use App\Category;
+use App\Fav;
+
 //参考 https://readouble.com/laravel/5.7/ja/queries.html
 
 
 class PostsController extends Controller
 {
   public function index (){
-    //$users = Post::latest()->get();でも同じ
    $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
-   //$test = Post::getnewposts();
-   // $posts = Post::all()
+   //$posts = Post::all()
    //Log::debug(print_r("結果".$posts, true));
    //変数に値を渡したい場合第二引数で設定。この場合、postsに値が入る
    //なお、変数に同じ値を入れる設定としてcombineもあり。その場合 ('drills.index',combine('drills'));となる。
@@ -61,10 +61,11 @@ public function show($id){
   if(!ctype_digit($id)){
     return redirect('/')->with('flash_message',__('Invalid operation was performed.'));
   }
-        $user = Auth::user();
-  $post = Post::find($id);
+  $user = Auth::user();//ユーザー情報
+  $post = Post::find($id);//ポスト情報
+  $fav = $post->favs()->where('user_id',Auth::user()->id)->first();
     
-  return view('posts.show',compact('post','user'));
+  return view('posts.show',compact('post','user','fav'));
 }
 
 //------------------削除アクション

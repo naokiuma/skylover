@@ -28,6 +28,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
+
+
+
+
 </head>
 <body>
     <div id="app">
@@ -103,9 +110,10 @@
 
 </script>
 
-<
+
 
 <script>
+  これをやる場合はslid-slickをslideThumbnailにかえろ
   var loop = setInterval(function(){
     
     //js-eachpost専用要素のクローンを作成
@@ -126,8 +134,6 @@
 </script>
 
 
-
-  
 
 </body>
 </html>
