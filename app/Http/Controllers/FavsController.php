@@ -14,6 +14,7 @@ class FavsController extends Controller
 {
     public function store(Request $request,$postId)
     {
+        Log::debug("favsのstoreコントローラーで処理を始めます");
         Fav::create(
             array(
                 'user_id' => Auth::user()->id,
@@ -23,7 +24,9 @@ class FavsController extends Controller
 
         $post = Post::findOrFail($postId);
 
-        return redirect()
+        //echo true;//ajaxにする場合の追加文章
+
+        return redirect()//ajaxではない場合
             ->action('PostsController@show',$post->id);
     }
 

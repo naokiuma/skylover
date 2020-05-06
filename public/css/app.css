@@ -10420,7 +10420,7 @@ h3 {
 }
 .form__wrapper {
   width: 90%;
-  height: 85vh;
+  height: 90vh;
   display: -webkit-box;
   display: flex;
   justify-content: space-around;
@@ -10440,6 +10440,7 @@ h3 {
 
 .form__container {
   width: 40%;
+  height: 80%;
   background-color: rgba(0, 0, 0, 0.03);
 }
 @media screen and (max-width: 768px) {
@@ -10451,6 +10452,7 @@ h3 {
 .form__container h2 {
   text-align: center;
   padding: 20px;
+  font-size: 18px;
 }
 .form__container__area {
   text-align: center;
@@ -10459,11 +10461,12 @@ h3 {
   text-align: center;
 }
 .form__container form div label {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .form-tw__container {
   width: 40%;
+  height: 80%;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.03);
 }
@@ -10476,6 +10479,7 @@ h3 {
 .form-tw__container h2 {
   text-align: center;
   padding: 20px;
+  font-size: 18px;
 }
 .form-tw__container p {
   font-size: 12px;

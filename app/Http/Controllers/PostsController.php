@@ -63,7 +63,11 @@ public function show($id){
   }
   $user = Auth::user();//ユーザー情報
   $post = Post::find($id);//ポスト情報
-  $fav = $post->favs()->where('user_id',Auth::user()->id)->first();
+  if(Auth::user()){
+    $fav = $post->favs()->where('user_id',Auth::user()->id)->first();
+  }else{
+    $fav = "";
+  }
     
   return view('posts.show',compact('post','user','fav'));
 }

@@ -44,22 +44,54 @@
       @csrf
       <button class="btn" onclick='return confirm("お気に入りにしますか？");'>お気に入りにする</button>
     </form>
+
+    
     @endif
   @endif
 
+  <!--
+  <form class="d-inline">
+    @csrf
+      <button class="js-click-like">テスト</button>
+  </form>
+  -->
 
 
 @endsection
 
+<!--
 <script>
 
-const $postid = @json($post);
-const $favid = @json($fav);
+const postid = @json($post)['id'];
+//const favid = @json($fav)['id'];
 
-console.log($postid);
-console.log($favid);
+//obj = JSON.parse(postid);
+//console.log(obj);
 
+
+console.log(postid);
+//console.log(favid);
+const url = `/posts/${postid}/favs`
+console.log(url);
+
+window.addEventListener('DOMContentLoaded', function(){
+  $('.js-click-like').on('click',function(e){
+    e.preventDefault();
+    $.ajax({
+      type: "get",
+      url: url,
+      data: { postid : postid}
+        }).done(function( data ){
+            console.log('Ajax Success');
+        }).fail(function( msg ){
+            console.log('Ajax Error');
+            console.log(msg);
+        });
+  });
+});
 
 
 </script>
+
+-->
 

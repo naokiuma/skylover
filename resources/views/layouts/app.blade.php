@@ -104,8 +104,7 @@
             @yield('content')
     </div>
 
-
-<footer class="footer"></footer>
+<!--<footer class="footer"></footer>-->
 <script>
 
 </script>
@@ -113,7 +112,7 @@
 
 
 <script>
-  これをやる場合はslid-slickをslideThumbnailにかえろ
+  //これをやる場合はslid-slickをslideThumbnailにかえろ
   var loop = setInterval(function(){
     
     //js-eachpost専用要素のクローンを作成
