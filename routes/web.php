@@ -41,7 +41,7 @@ Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallba
 // ログアウトURL
 Route::get('auth/twitter/logout', 'Auth\TwitterController@logout')->name('auth.twitter.logout');
 
-Route::get('/posts/{post}/favs','FavsController@store')->name('favs.store');
+Route::post('/posts/{post}/favs','FavsController@store')->name('favs.store');
 Route::post('/posts/{postId}/favs/{favId}', 'FavsController@destroy')->name('favs.destroy');
 
 //
