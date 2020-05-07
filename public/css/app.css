@@ -10600,6 +10600,64 @@ a:hover {
   color: #1da1f2;
 }
 
+/*ヘッダー*/
+.header-container.hide {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  background-color: #479cf2d4;
+}
+
+.header-container {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  top: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 2;
+  background-color: white;
+}
+@media screen and (max-width: 768px) {
+  .header-container {
+    font-size: 12px;
+  }
+}
+.header-container .header-left {
+  font-size: 12px;
+  width: 30%;
+  text-align: center;
+}
+.header-container .header-left a {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  margin: auto;
+}
+.header-container .header-right {
+  font-size: 10px;
+  width: 65%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .header-container .header-right {
+    font-size: 10px;
+    width: 80%;
+  }
+}
+.header-container .header-right .header-right-ul {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  height: 60px;
+  line-height: 60px;
+}
+
 /*ビルボードの表示*/
 .top-billbord_btn {
   width: 200px;
@@ -10612,6 +10670,7 @@ a:hover {
   background-color: white;
   color: black;
   box-shadow: 2px 2px;
+  border-radius: 20px;
 }
 
 .top-billbord_btn::before {
@@ -10631,6 +10690,7 @@ a:hover {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   z-index: -1;
+  border-radius: 20px;
 }
 
 .top-billbord_btn:hover {
@@ -10692,13 +10752,8 @@ a:hover {
 
 .top-explain {
   width: 80%;
-  height: 500px;
+  height: auto;
   margin: auto;
-}
-@media screen and (max-width: 768px) {
-  .top-explain {
-    height: auto;
-  }
 }
 @media screen and (max-width: 768px) {
   .top-explain {
@@ -10706,13 +10761,15 @@ a:hover {
     font-size: 25px;
   }
 }
+.top-explain h2 {
+  margin: 65px auto;
+  text-align: center;
+}
 
 .top-posts {
   text-align: center;
-  margin: 100px auto 30px auto;
   font-size: 40px;
   width: 80%;
-  margin: auto;
 }
 @media screen and (max-width: 768px) {
   .top-posts {
@@ -10829,13 +10886,16 @@ a:hover {
 
 .top-eachposts {
   width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+ul {
   display: -webkit-box;
   display: flex;
-  margin: auto;
   -webkit-box-pack: justify;
           justify-content: space-between;
   flex-wrap: wrap;
-  box-sizing: border-box;
 }
 
 .top-eachpost {
@@ -10848,6 +10908,31 @@ a:hover {
     width: 30%;
     margin: 1px;
   }
+}
+
+/*
+.slideThumbnail{
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  top: 10px;
+}
+*/
+.loopSlider {
+  margin: 0 auto;
+  width: 500px;
+  height: 100px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.loopSliderWrap {
+  top: 0;
+  left: 0;
+  height: 280px;
+  overflow: hidden;
+  position: absolute;
 }
 
 .each_posts {
@@ -10894,20 +10979,6 @@ a:hover {
   }
 }
 
-.slideThumbnail {
-  height: 280px;
-  overflow: hidden;
-  position: relative;
-  top: 10px;
-}
-
-/*
-.top_title{
-  @media screen and (max-width: $res-max-width){
-    font-size:20px;
-    }
-}
-*/
 .img_whrapper {
   width: 100%;
   overflow: hidden;

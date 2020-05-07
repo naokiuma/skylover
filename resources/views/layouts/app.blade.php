@@ -30,87 +30,75 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-
-
-
-
-
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar font-s navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Sky Light Lover
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+  <div id="app">
+      <div class="header-container">
+        <div class="header-left">
+        <a class="" href="{{ url('/') }}">
+          Sky Light Lover
+        </a>
+        </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
+        <div class="header-right" id="navbarSupportedContent">
+          <!-- Right Side Of Navbar -->
+          <ul class="header-right-ul">
+              <!-- Authentication Links -->
+              @guest
+                  <li>
+                      <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
+                  <li>
+                      <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
+                  </li>
+                  <li>
+                    <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
+                  </li>
+              @if (Route::has('register'))
+                  <li>
+                      <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  </li>
+              @endif
+              @if(session('flash_message'))
+                  <div class="alert">
+                    {{session('flash_message')}}
+                  </div>
+                  @endif
+              @else
+                <li>
+                  <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
+                </li>
+                <li>
+                    <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
+                </li>
+                <li>
+                  <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
+                </li>
+                <li>
+                  <a class="" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"
+                  >{{ __('Logout') }}</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                </li>
+              @endguest
+          </ul>
+        </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
-                            </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                        @if(session('flash_message'))
-                            <div class="alert">
-                              {{session('flash_message')}}
-                            </div>
-                            @endif
-                        @else
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
-                          </li>
-                          <li class="nav-item post-button">
-                            <a class="nav-link" href="{{ route('new') }}">{{ __('Post') }}</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();"
-                            >{{ __('Logout') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                          </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
-            @yield('content')
-    </div>
+
+  </div>
+    @yield('content')
+  </div>
+
 
 <!--<footer class="footer"></footer>-->
-<script>
 
-</script>
-
-
-
+<!--
 <script>
   //これをやる場合はslid-slickをslideThumbnailにかえろ
   var loop = setInterval(function(){
@@ -130,6 +118,64 @@
 
 
   },3000);
+</script>
+-->
+
+<script>
+  $(function(){
+    console.log("1");
+    let setElm = $('.loopSlider'),
+    slideSpeed = 2000;
+    console.log("1.5");
+    console.log(setElm);
+
+      setElm.each(function(){
+        console.log("2");
+        let self = $(this),
+        selfWidth = self.innerWidth(),
+        findUl = self.find('ul'),
+        findPost = findUl.find('js-eachpost'),//一つ一つの要素の長さ
+        postWidth = findPost.outerWidth(),
+        postCount = findPost.length,
+        loopWidth = postWidth * postCount;
+
+        findUl.wrapAll('<div class="loopSliderWrap" />');
+        let selfWrap = self.find('.loopSlideWrap');
+
+        if(loopWidth > selfWidth){
+          console.log("3");
+            findUl.css({width:loopWidth}).clone().appendTo(selfWrap);
+ 
+            selfWrap.css({width:loopWidth*2});
+ 
+            function loopMove(){
+                selfWrap.animate({left:'-' + (loopWidth) + 'px'},slideSpeed*listCount,'linear',function(){
+                    selfWrap.css({left:'0'});
+                    loopMove();
+                });
+            };
+            loopMove();
+        }
+
+      });
+  });
+
+
+
+</script>
+
+
+<script>
+let startPos = 0,winScrollTop = 0;
+$(window).on('scroll',function(){
+    winScrollTop = $(this).scrollTop();
+    if (winScrollTop >= startPos &&  winScrollTop >= 200) {
+        $('.header-container').addClass('hide');
+    } else {
+        $('.header-container').removeClass('hide');
+    }
+    startPos = winScrollTop;
+});
 </script>
 
 

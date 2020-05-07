@@ -63,6 +63,61 @@ a{
   }
 }
 
+
+/*ヘッダー*/
+.header-container.hide{//スクロール中消えるヘッダー
+  transform: translateY(-100%);
+  background-color: #479cf2d4;
+  }
+
+.header-container{
+  width: 100%;
+  height:60px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  transition: .5s;
+  z-index: 2;
+  background-color: white;
+  @media screen and (max-width: $res-max-width){
+    font-size: 12px;
+  }
+  .header-left{
+    font-size: 12px;
+    width: 30%;
+    text-align: center;
+    a{
+      display: inline-block;
+      height: 60px;
+      line-height: 60px;
+      margin: auto;
+    }
+  }
+
+  .header-right{
+    font-size: 10px;
+    width: 65%;
+    height: 100%;
+    @media screen and (max-width: $res-max-width){
+      font-size: 10px;
+      width: 80%;
+    }
+
+    .header-right-ul{
+      display:flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      height: 60px;
+      line-height: 60px;
+    }
+  }
+
+}
+
+
+
 /*ビルボードの表示*/
 
 .top-billbord_btn{
@@ -76,6 +131,7 @@ a{
   background-color:white;
   color:black;
   box-shadow: 2px 2px;
+  border-radius: 20px;
 
 }
 
@@ -91,6 +147,7 @@ a{
   transform: scale(0, 1);
   transition: transform .3s;
   z-index: -1;
+  border-radius: 20px;
 }
 
 .top-billbord_btn:hover{
@@ -147,24 +204,24 @@ a{
 
 .top-explain{
   width: 80%;
-  height: 500px;
+  height: auto;
   margin: auto;
-  @media screen and (max-width: $res-max-width){
-    height: auto;
-    }
     @media screen and (max-width: $res-max-width){
       margin: 50px auto;
       font-size: 25px;
+      
+      }
+      h2{
+        margin: 65px auto;
+        text-align: center;
       }
   }
 
 
 .top-posts{
   text-align: center;
-  margin:100px auto 30px auto;
   font-size: 40px;
   width: 80%;
-  margin: auto;
   @media screen and (max-width: $res-max-width){
     margin: 50px auto 20px auto;
     font-size:25px;
@@ -273,24 +330,54 @@ a{
 .top-eachposts{
   //width:80%;
   width: 100%;
-  display: flex;
   margin: auto;
-  justify-content: space-between;
-  flex-wrap: wrap;
   box-sizing: border-box;
 }
+ul{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}  
+
 .top-eachpost{
   text-align: center;
   width: 20%;
   margin: 5px;
-//  animation-name: LeftToRight;
-//  animation-duration: 1s;
 
   @media screen and (max-width: $res-max-width){
     width: 30%;
     margin: 1px;
     }
 }
+
+/*
+.slideThumbnail{
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+  top: 10px;
+}
+*/
+
+  .loopSlider {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.loopSliderWrap {
+  top: 0;
+  left: 0;
+  height: 280px;
+  overflow: hidden;
+  position: absolute;
+}
+
+
 
 
 //トップではないeachpost
@@ -330,19 +417,6 @@ a{
     }
 }
 
-.slideThumbnail{
-  height: 280px;
-  overflow: hidden;
-  position: relative;
-  top: 10px;
-}
-/*
-.top_title{
-  @media screen and (max-width: $res-max-width){
-    font-size:20px;
-    }
-}
-*/
 
 
 

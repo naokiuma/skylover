@@ -21,7 +21,7 @@
 
 
 <section class="top-explain">
-  <h2 class="content-lead">3ステップで空を投稿しよう。</h2>
+  <h2>3ステップで空を投稿しよう。</h2>
   <div class="step__wrapper">
 
     <div class="step__signup">
@@ -49,7 +49,8 @@
 
 
  <div class="container-fruid">
-    <div class="top-eachposts slideThumbnail">
+    <div class="top-eachposts loopSlider">
+      <ul>
       @foreach ($posts as $post)
       <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
         <div class="top-eachpost image_get js-eachpost">
@@ -63,6 +64,7 @@
           </div>
         </div>
       @endforeach
+      </ul>
    </div>
 </div>
 
