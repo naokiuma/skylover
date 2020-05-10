@@ -10545,6 +10545,57 @@ h3 {
   display: none;
 }
 
+.all-wrapper {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.contents-wrapper {
+  padding-bottom: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #0da0f9bd;
+}
+@media screen and (max-width: 414px) {
+  footer {
+    height: 30px;
+  }
+}
+
+.icon-star {
+  color: yellow;
+  text-shadow: 1px solid black;
+}
+
+.sp-menu-box {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background-color: white;
+}
+@media screen and (max-width: 414px) {
+  .sp-menu-box {
+    display: block;
+    z-index: 30;
+    padding: 5px;
+    border: solid 2px skyblue;
+  }
+}
+
+.icon-mixcoud {
+  font-size: 30px;
+  color: skyblue;
+  background-color: white;
+}
+
 html {
   font-size: 80.5%;
   font-family: "M PLUS Rounded 1c";
@@ -10604,6 +10655,8 @@ a:hover {
 .header-container.hide {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   background-color: #479cf2d4;
 }
 
@@ -10617,18 +10670,24 @@ a:hover {
           justify-content: space-between;
   position: fixed;
   top: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
   z-index: 2;
   background-color: white;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .header-container {
+    display: block;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    height: 100%;
+    width: 80%;
     font-size: 12px;
+    z-index: 2;
   }
 }
 .header-container .header-left {
-  font-size: 12px;
+  font-size: 14px;
   width: 30%;
   text-align: center;
 }
@@ -10638,15 +10697,21 @@ a:hover {
   line-height: 60px;
   margin: auto;
 }
+@media screen and (max-width: 414px) {
+  .header-container .header-left {
+    width: 100%;
+    margin: 50px auto;
+  }
+}
 .header-container .header-right {
-  font-size: 10px;
+  font-size: 12px;
   width: 65%;
   height: 100%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .header-container .header-right {
     font-size: 10px;
-    width: 80%;
+    width: 100%;
   }
 }
 .header-container .header-right .header-right-ul {
@@ -10656,6 +10721,14 @@ a:hover {
   justify-content: space-around;
   height: 60px;
   line-height: 60px;
+}
+@media screen and (max-width: 414px) {
+  .header-container .header-right .header-right-ul {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-left: 0px;
+  }
 }
 
 /*ビルボードの表示*/
@@ -10723,7 +10796,7 @@ a:hover {
   text-shadow: 2px 2px white;
   font-family: "M PLUS Rounded 1c";
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .top-billbord h1 {
     font-size: 30px;
   }
@@ -10737,7 +10810,7 @@ a:hover {
   text-shadow: 2px 2px white;
   font-family: "M PLUS Rounded 1c";
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .top-billbord p {
     font-size: 16px;
   }
@@ -10755,7 +10828,7 @@ a:hover {
   height: auto;
   margin: auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .top-explain {
     margin: 50px auto;
     font-size: 25px;
@@ -10771,7 +10844,7 @@ a:hover {
   font-size: 40px;
   width: 80%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .top-posts {
     margin: 50px auto 20px auto;
     font-size: 25px;
@@ -10799,7 +10872,7 @@ a:hover {
   display: flex;
   justify-content: space-around;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .step__wrapper {
     display: block;
   }
@@ -10807,7 +10880,7 @@ a:hover {
 .step__signup {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .step__signup {
     width: 100%;
     margin-bottom: 50px;
@@ -10829,7 +10902,7 @@ a:hover {
 .step__photo {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .step__photo {
     width: 100%;
     margin-bottom: 50px;
@@ -10847,7 +10920,7 @@ a:hover {
 .step__post {
   width: 30%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .step__post {
     width: 100%;
     margin-bottom: 50px;
@@ -10878,14 +10951,15 @@ a:hover {
 }
 
 .billbord {
-  max-width: 90%;
+  max-width: 95%;
   margin: 5% auto;
   text-align: center;
   letter-spacing: 1px;
+  background-color: #b4caf4;
+  padding: 20px;
 }
 
 .top-eachposts {
-  width: 100%;
   margin: auto;
   box-sizing: border-box;
 }
@@ -10903,7 +10977,7 @@ ul {
   width: 20%;
   margin: 5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .top-eachpost {
     width: 30%;
     margin: 1px;
@@ -10920,8 +10994,8 @@ ul {
 */
 .loopSlider {
   margin: 0 auto;
-  width: 500px;
-  height: 100px;
+  width: 100%;
+  height: 400px;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -10930,9 +11004,12 @@ ul {
 .loopSliderWrap {
   top: 0;
   left: 0;
-  height: 280px;
+  height: 380px;
   overflow: hidden;
   position: absolute;
+}
+.loopSliderWrap ul {
+  padding-left: 0;
 }
 
 .each_posts {
@@ -10952,7 +11029,7 @@ ul {
   width: 20%;
   margin: 5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .each_post {
     width: 180px;
     margin: 1px;
@@ -10962,7 +11039,7 @@ ul {
 .each_post:nth-child(even) {
   width: 15%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .each_post:nth-child(even) {
     width: 200px;
   }
@@ -10973,7 +11050,7 @@ ul {
   width: 50%;
   color: white;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .each_post__btn {
     width: 60%;
   }
@@ -11012,7 +11089,7 @@ ul {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .img_whrapper .mask {
     opacity: 1;
     padding-top: 20%;
@@ -11043,7 +11120,7 @@ ul {
 .image-m {
   width: 940px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .image-m {
     width: auto;
     height: auto;
@@ -11053,7 +11130,7 @@ ul {
 .image-s {
   width: 300px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .image-s {
     width: 80%;
     height: auto;
@@ -11155,7 +11232,7 @@ ul {
   height: 60vh;
   margin-bottom: 50px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .c-category__header {
     width: 50%;
     height: 40vh;
@@ -11204,20 +11281,35 @@ ul {
   color: red;
 }
 
-.footer {
-  height: 52px;
-  background-color: black;
-  display: none;
-}
-
 .space {
   height: 40px;
   width: 100%;
   background: white;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .space {
     height: 20px;
+  }
+}
+
+.header-space {
+  height: 60px;
+  width: 100%;
+}
+@media screen and (max-width: 414px) {
+  .header-space {
+    display: none;
+  }
+}
+
+.header-sp-space {
+  display: none;
+}
+@media screen and (max-width: 414px) {
+  .header-sp-space {
+    display: block;
+    height: 80px;
+    width: 100%;
   }
 }
 
@@ -11246,8 +11338,8 @@ ul {
 }
 @-webkit-keyframes LeftToRight {
   0% {
-    -webkit-transform: translateX(-200px);
-            transform: translateX(-200px);
+    -webkit-transform: translateX(-60%);
+            transform: translateX(-60%);
     /* X軸方向に50px */
   }
   100% {
@@ -11257,8 +11349,8 @@ ul {
 }
 @keyframes LeftToRight {
   0% {
-    -webkit-transform: translateX(-200px);
-            transform: translateX(-200px);
+    -webkit-transform: translateX(-60%);
+            transform: translateX(-60%);
     /* X軸方向に50px */
   }
   100% {

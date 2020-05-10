@@ -9,7 +9,63 @@
 
 //formscss
 @import "form.scss";
-$res-max-width:768px;
+$res-max-width:414px;
+
+
+
+
+.all-wrapper{
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.contents-wrapper{
+  padding-bottom: 100px;
+}
+
+
+//フッター
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #0da0f9bd;
+  @media screen and (max-width: $res-max-width){
+    height: 30px;
+  }
+
+
+}
+
+
+
+.icon-star{
+  color: yellow;
+  text-shadow: 1px solid black;
+}
+
+.sp-menu-box{
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background-color: white;  
+  @media screen and (max-width: $res-max-width){
+    display: block;
+    z-index: 30;
+    padding: 5px;
+    border: solid 2px skyblue;
+  }
+}
+
+.icon-mixcoud{
+  font-size: 30px;
+  color: skyblue;
+  background-color: white;
+}
 
 html{
     font-size: 80.5%;
@@ -67,6 +123,7 @@ a{
 /*ヘッダー*/
 .header-container.hide{//スクロール中消えるヘッダー
   transform: translateY(-100%);
+  transition: .5s;
   background-color: #479cf2d4;
   }
 
@@ -78,14 +135,24 @@ a{
   justify-content: space-between;
   position: fixed;
   top: 0;
-  transition: .5s;
   z-index: 2;
   background-color: white;
   @media screen and (max-width: $res-max-width){
+    display: block;
+    transition: .5s;
+    transform: translateX(-100%);
+    height: 100%;
+    width: 80%;
     font-size: 12px;
+    z-index: 2;
   }
+  
+
+  .sp-active{    
+  }
+
   .header-left{
-    font-size: 12px;
+    font-size: 14px;
     width: 30%;
     text-align: center;
     a{
@@ -94,15 +161,19 @@ a{
       line-height: 60px;
       margin: auto;
     }
+    @media screen and (max-width: $res-max-width){
+      width: 100%;
+      margin: 50px auto;
+    }
   }
 
   .header-right{
-    font-size: 10px;
+    font-size: 12px;
     width: 65%;
     height: 100%;
     @media screen and (max-width: $res-max-width){
       font-size: 10px;
-      width: 80%;
+      width: 100%;
     }
 
     .header-right-ul{
@@ -111,9 +182,15 @@ a{
       justify-content: space-around;
       height: 60px;
       line-height: 60px;
+      @media screen and (max-width: $res-max-width){
+        display: block;       
+        width: 100%;
+        text-align: center;
+        padding-left: 0px;
+      }
+
     }
   }
-
 }
 
 
@@ -321,15 +398,16 @@ a{
 }
 
 .billbord{
-  max-width: 90%;
+  max-width: 95%;
   margin: 5% auto;
   text-align: center;
   letter-spacing: 1px;
+  background-color: #b4caf4;
+  padding: 20px;
 }
 
 .top-eachposts{
-  //width:80%;
-  width: 100%;
+  //width: 100%;
   margin: auto;
   box-sizing: border-box;
 }
@@ -359,22 +437,25 @@ ul{
 }
 */
 
-  .loopSlider {
-    margin: 0 auto;
-    width: 500px;
-    height: 100px;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
+.loopSlider {
+  margin: 0 auto;
+  width: 100%;
+  height: 400px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
 }
 
 
 .loopSliderWrap {
   top: 0;
   left: 0;
-  height: 280px;
+  height: 380px;
   overflow: hidden;
   position: absolute;
+  ul{
+    padding-left: 0;
+  }
 }
 
 
@@ -570,6 +651,8 @@ ul{
   background-image: url(../img/sky_cloud.jpg);
   background-size: cover;
 }
+
+
 .choice{
   line-height: 100px;
   height: 100%;
@@ -649,13 +732,7 @@ ul{
 }
 
 
-//フッター
-.footer{
-  height: 52px;
-  background-color: black;
-  display: none;
 
-}
 
 
 //その他コンテンツ//
@@ -669,6 +746,23 @@ ul{
     }
 }
 
+.header-space{
+  height: 60px;
+  width: 100%;
+  @media screen and (max-width: $res-max-width){
+    display: none;
+  }
+}
+
+.header-sp-space{
+  display: none;
+  @media screen and (max-width: $res-max-width){
+    display: block;
+    height: 80px;
+    width: 100%;
+  }
+}
+
 
 @keyframes gradationMorning {
   0% { background-color: #6CB8FF; }
@@ -679,7 +773,7 @@ ul{
 
 @keyframes LeftToRight {
   0% {
-    transform: translateX(-200px);/* X軸方向に50px */
+    transform: translateX(-60%);/* X軸方向に50px */
   }
   100% {
     transform: translateX(0);

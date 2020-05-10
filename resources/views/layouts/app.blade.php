@@ -33,93 +33,76 @@
 </head>
 
 <body>
-  <div id="app">
-      <div class="header-container">
-        <div class="header-left">
-        <a class="" href="{{ url('/') }}">
-          Sky Light Lover
-        </a>
-        </div>
+  <div class="all-wrapper">
+  <div id="app" class="contents-wrapper">
+  <div class="sp-menu-box sp-menu-js"><i class="fab fa-mixcloud icon-mixcoud"></i></div>
+  <div class="header-space"></div> 
 
+  <div class="header-container">
+    <div class="header-left">
+    <a class="" href="{{ url('/') }}">
+      Sky Light Lover
+    </a>
+    </div>
 
-        <div class="header-right" id="navbarSupportedContent">
-          <!-- Right Side Of Navbar -->
-          <ul class="header-right-ul">
-              <!-- Authentication Links -->
-              @guest
-                  <li>
-                      <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
-                  <li>
-                      <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
-                  </li>
-                  <li>
-                    <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
-                  </li>
-              @if (Route::has('register'))
-                  <li>
-                      <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
-                  </li>
-              @endif
-              @if(session('flash_message'))
-                  <div class="alert">
-                    {{session('flash_message')}}
-                  </div>
-                  @endif
-              @else
-                <li>
+    <div class="header-right" id="navbarSupportedContent">
+      <!-- Right Side Of Navbar -->
+      <ul class="header-right-ul">
+          <!-- Authentication Links -->
+          @guest
+              <li>
+                  <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              <li>
                   <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
-                </li>
-                <li>
-                    <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
-                </li>
-                <li>
-                  <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
-                </li>
-                <li>
-                  <a class="" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();"
-                  >{{ __('Logout') }}</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                  </form>
-                </li>
-              @endguest
-          </ul>
-        </div>
+              </li>
+              <li>
+                <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
+              </li>
+          @if (Route::has('register'))
+              <li>
+                  <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+          @endif
+          @if(session('flash_message'))
+              <div class="alert">
+                {{session('flash_message')}}
+              </div>
+              @endif
+          @else
+            <li>
+              <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
+            </li>
+            <li>
+                <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
+            </li>
+            <li>
+              <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
+            </li>
+            <li>
+              <a class="" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"
+              >{{ __('Logout') }}</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            </li>
+          @endguest
+      </ul>
+    </div>
 
 
 
   </div>
     @yield('content')
-  </div>
+<footer class="footer"></footer>
+
+</div>
+</div>
 
 
-<!--<footer class="footer"></footer>-->
 
-<!--
-<script>
-  //これをやる場合はslid-slickをslideThumbnailにかえろ
-  var loop = setInterval(function(){
-    
-    //js-eachpost専用要素のクローンを作成
-    var clone = $(".js-eachpost:last").clone(true);
-    $(".slideThumbnail").animate({
-     "marginLeft":"25%"
-    },700,"swing",function(){
-      $(".js-eachpost:last").remove();
-      $(".slideThumbnail").animate({
-     "marginLeft":"0"
-    },0)
-      //クローンを最後に追加
-      clone.clone(true).insertBefore($(".js-eachpost:first"));
-    });
-
-
-  },3000);
-</script>
--->
 
 <script>
   $(function(){
@@ -166,6 +149,11 @@
 
 
 <script>
+
+
+//スクロールするとひっこめる動き。pcの場合のみ
+if (window.matchMedia('(min-width: 414px)').matches) {
+  // PC表示の時の処理
 let startPos = 0,winScrollTop = 0;
 $(window).on('scroll',function(){
     winScrollTop = $(this).scrollTop();
@@ -176,8 +164,32 @@ $(window).on('scroll',function(){
     }
     startPos = winScrollTop;
 });
+} 
+
 </script>
 
+<script>
+//スマホメニューonoff。スマホの場合のみ
+//sp-activeclassの有無でスマホメニューを開いているか判定
+if (window.matchMedia('(max-width: 414px)').matches) {
+
+$(function(){
+  $(".sp-menu-js").click(function(){
+    if ($('.header-container').hasClass("sp-active")) {
+    // 表示されている場合の処理
+    $(".header-container").css("transform","translateX(-100%)");
+    $(".header-container").removeClass("sp-active");
+    } else {
+    // 非表示の場合の処理
+    $(".header-container").css("transform","translateX(0%)");
+    $(".header-container").addClass("sp-active");
+    } 
+  })
+})
+}
+
+
+</script>
 
 
 </body>
