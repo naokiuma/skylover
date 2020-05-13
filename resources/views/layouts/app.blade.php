@@ -80,6 +80,14 @@
               <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
             </li>
             <li>
+              @if($user->name)
+              <a href="">{{ $user -> name }}</a>
+              @elseif($user ->handle)
+              <a href="">{{ $user -> handle }}</a>
+              @endif
+
+            </li>
+            <li>
               <a class="" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();"
@@ -91,14 +99,15 @@
           @endguest
       </ul>
     </div>
-
-
-
+    <div class="widget-wrapper">
+      <a href="">Favorite</a>
+    </div>
   </div>
+
     @yield('content')
-<!--
+
 <footer class="footer"></footer>
--->
+
 </div>
 </div>
 

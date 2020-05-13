@@ -21,34 +21,41 @@ class FavsController extends Controller
             )
         ); 
 
-        $post = Post::findOrFail($postId);//画像1
-        //$fav =  DB::table('favs')->latest()->first();//画像2これだとダメ。
+        $post = Post::findOrFail($postId);
+        //$fav =  DB::table('favs')->latest()->first();これだとダメ。
+        Log::debug(print_r("結果だよ".$post, true));
 
         //ajax用ここから----------
-        //$fav = Fav::where('user_id', Auth::user()->id)->latest()->first();
-        //Log::debug(print_r("結果だよ".$post, true));
-        //ajaxにする場合の追加文章
-        //$fav_id = Fav::all()->first();//これはダメ。最初のが来てしまう。
-       
-        //echo $post;//こっちはリターンで返せる
+        $fav = Fav::where('user_id', Auth::user()->id)->latest()->first();
+        //$fav_id = Fav::all()->first();//これはダメ。最初のが来てしまう。       
         $data_arr = array($post, $fav);
         $datas = json_encode($data_arr);
         echo $datas;
         //ajax用ここまで----------
 
-          
-        return redirect()//ajaxではない場合
-            ->action('PostsController@show',$post->id);
+        //通常用ここから----------
+        //return redirect()//ajaxではない場合
+        //    ->action('PostsController@show',$post->id);
+        //通常用ここまで----------
     }
 
 
     public function destroy($postId,$favId)
     {
-        $post = Post::findOrFail($postId);//postidがあるかどうか判定
-        $post->fav_by()->findOrFail($favId)->delete();
+        Log::debug("favsのdestroyコントローラーで処理を始めます");
 
-        return redirect()
-            ->action('PostsController@show',$post->id);
+        $delete_fav = Post::findOrFail($postId);//postidがあるかどうか判定
+        $delete_fav->fav_by()->findOrFail($favId)->delete();
+        $post = Post::findOrFail($postId);
+
+        //ajax用ここから----------
+        echo $post;
+
+        //通常用ここから----------
+        //return redirect()
+        //    ->action('PostsController@show',$post->id);
+        //通常用ここまで----------
+
 
     }
 }
