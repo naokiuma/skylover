@@ -70,7 +70,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: #0da0f9;
+  background-color: #71caff;
   @media screen and (max-width: $res-max-width){
     height: 100px;
   }
@@ -175,6 +175,7 @@ a{
   top: 0;
   z-index: 2;
   background-color: white;
+  transition: 0.5s;
   @media screen and (max-width: $res-max-width){
     display: block;
     transition: .5s;
@@ -238,6 +239,7 @@ a{
   width: 200px;
   height: 50px;
   margin: 50px 20px;
+  
   font-size: 16px;
   position: relative;
   display: inline-block;
@@ -437,15 +439,24 @@ a{
 .billbord{
   max-width: 95%;
   margin: 5% auto;
+  padding: 5%;
   text-align: center;
   letter-spacing: 1px;
-  background-color: #b4caf4;
-  padding: 20px;
+  background-color: #e7f9f5;
+  padding: 5%;
+}
+
+.like-button{
+  font-size: 14px;
+  padding: 3px 10px;
 }
 
 .top-eachposts{
   //width: 100%;
-  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px auto;
   box-sizing: border-box;
 }
 ul{
@@ -456,48 +467,15 @@ ul{
 
 .top-eachpost{
   text-align: center;
-  width: 20%;
+  width: 30%;
   margin: 5px;
-
   @media screen and (max-width: $res-max-width){
-    width: 30%;
+    width: 40%;
     margin: 1px;
     }
 }
 
 /*
-.slideThumbnail{
-  height: 280px;
-  overflow: hidden;
-  position: relative;
-  top: 10px;
-}
-*/
-
-.loopSlider {
-  margin: 0 auto;
-  width: 100%;
-  height: 400px;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-}
-
-
-.loopSliderWrap {
-  top: 0;
-  left: 0;
-  height: 380px;
-  overflow: hidden;
-  position: absolute;
-  ul{
-    padding-left: 0;
-  }
-}
-
-
-
-
 //トップではないeachpost
 
 .each_posts{
@@ -534,9 +512,7 @@ ul{
     width: 60%;
     }
 }
-
-
-
+*/
 
 .img_whrapper{
   width: 100%;
@@ -552,10 +528,15 @@ ul{
     font-size:		80%;
     text-align: 		center;
     color:			#fff;
-    a{
+    background: #f5f5dc69;
+    
+      a{
       color: black;
-      background-color: #f5f5dc69;
-    }
+      display: block;
+      padding: 5px;
+      margin: auto;
+      font-size: 14px;
+      }
   }
   .mask{
     width:			100%;
@@ -573,13 +554,15 @@ ul{
       background-color:	rgba(0, 0, 0, 0);
       }
 
-
-
-
   }
-
 }
 
+
+.gallerysearch-box{
+  input{
+    margin:10px;
+  }
+}
 /*カテゴリーページ*/
 
 

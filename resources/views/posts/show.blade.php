@@ -19,29 +19,12 @@
       <!--お気に入り-->
       <i class="fas fa-star icon-star"></i><span class="favs-count"><?php echo $post->favs_count ?></span>
 
-    </div>
-  </div>
-
-@if( Auth::check() )
-  <?php if($user->id == $post->user_id) :?>
-
-    <form action="{{ route('posts.delete',$post->id ) }}" method="post" class="d-inline">
-      @csrf
-      <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>{{ __('Go Delete')  }}</button>
-    </form> 
-
-  <?php endif; ?>
-
-@endif
-
-</div>
-
 <!--お気に入り機能-->
 @if (Auth::check())
     @if ($fav)
     <!--favありの場合。ajax-->
     <div class="js-click-wrap">
-      <button class="js-clicked-like">お気に入り済み/ajax</button>
+      <button class="like-button js-clicked-like">お気に入り済み</button>
     </div>
 
     <!--favありの場合。ajaxではない
@@ -51,12 +34,10 @@
     </form>
     -->
     
-    
-
     @else
     <!--ajaxの場合-->
     <div class="js-click-wrap">
-      <button class="js-click-like">お気に入りする/ajax</button>
+      <button class="like-button js-click-like">お気に入りする</button>
     </div>
 
     <!--ajaxではない場合
@@ -70,6 +51,22 @@
 @endif
   
 
+      
+
+  </div>
+</div>
+
+@if( Auth::check() )
+  <?php if($user->id == $post->user_id) :?>
+
+    <form action="{{ route('posts.delete',$post->id ) }}" method="post" class="d-inline">
+      @csrf
+      <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>{{ __('Go Delete')  }}</button>
+    </form> 
+
+  <?php endif; ?>
+@endif
+</div>
 
 
 <!--//ajax用スクリプと-->
@@ -114,7 +111,7 @@ $(document).on('click', '.js-click-like', function(e){
             console.log(result);
             console.log(result[0].favs_count);
             $('.favs-count').text(result[0].favs_count);
-            $('.js-click-wrap').html('<button class="js-clicked-like">お気に入り済み/ajax</button>');
+            $('.js-click-wrap').html('<button class="like-button js-clicked-like">お気に入り済み</button>');
             //お気に入りした場合に帰ってくるfav情報。同じ画面でそのまま削除する場合は、このreturn_fav_idを使う。
             return_fav_id = result[1].id;
             console.log("今回取得したfavです。")
@@ -133,13 +130,13 @@ $(document).on('click', '.js-clicked-like', function(e){
   console.log(return_fav_id);
 e.preventDefault();
 //読み込みの時点でfavidがある場合。
-if(favid){
-  var deleteurl = `/posts/${postid}/favs/${favid}`
+if(return_fav_id){
+  var deleteurl = `/posts/${postid}/favs/${return_fav_id}`
   console.log("最初からfavされていました。deleteurlです。");
   console.log(deleteurl);
-  //ない場合は、処理1で戻ってきたfav情報を捕まえる
-  }else if(return_fav_id){
-    var deleteurl = `/posts/${postid}/favs/${return_fav_id}`
+  favid = " ";
+  }else if(favid){
+    var deleteurl = `/posts/${postid}/favs/${favid}`
     console.log("あとからfavされました。deleteurlです。");
     console.log(deleteurl);
   }
@@ -159,7 +156,7 @@ if(favid){
             console.log(result);
             console.log(result.favs_count);
             $('.favs-count').text(result.favs_count);
-            $('.js-click-wrap').html('<button class="js-click-like">お気に入りする/ajax</button>');
+            $('.js-click-wrap').html('<button class="like-button js-click-like">お気に入りする</button>');
         }).fail(function( msg ){
             console.log('Ajax Error');
             console.log(msg);

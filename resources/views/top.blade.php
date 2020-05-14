@@ -46,15 +46,12 @@
 <h2 class="top-posts content-lead">投稿画像一覧</h2>
 <p class="top-posts-p"><a href="{{ route('posts.gallery') }}">もっと見る</a></p>
 
-
-
-
  <div class="container-fruid">
-    <div class="top-eachposts loopSlider">
-      <ul>
+    <div class="top-eachposts">
+      
       @foreach ($posts as $post)
       <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
-        <div class="top-eachpost image_get js-eachpost">
+        <div class="top-eachpost image_get">
           <div class="img_whrapper">
               <img src ="./{{ $post_image }}" class="img-fluid image_active" alt="Responsive image">
               <div class="mask">
@@ -65,7 +62,7 @@
           </div>
         </div>
       @endforeach
-      </ul>
+      
    </div>
 </div>
 

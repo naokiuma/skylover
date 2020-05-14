@@ -73,9 +73,11 @@
             <li>
               <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
             </li>
+            <!--
             <li>
                 <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
             </li>
+            -->
             <li>
               <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
             </li>

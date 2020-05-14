@@ -19,7 +19,7 @@ use App\Fav;
 class PostsController extends Controller
 {
   public function index (){
-   $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
+   $posts = Post::orderBy('created_at', 'desc')->take(8)->get();
    //$user = Auth::user();//ユーザー情報
    //$posts = Post::all()//全ての場合
    //Log::debug(print_r("結果".$posts, true));

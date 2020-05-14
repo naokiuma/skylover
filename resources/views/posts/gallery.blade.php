@@ -24,17 +24,19 @@
 
   ?>
 
-  <div class="col-sm-12">
+<div class="col-sm-12">
   <form method="POST" action="{{ route('posts.search')}}" class="billbord" enctype="multipart/form-data" >
     {{ csrf_field() }}
 
   <!--ギャラリーでの検索-->
       <div class="form-group container-fruid">
-      <label for="title" class="font-m">キーワードで検索</label><br>
-        <input type="text"name="keyword" autocomplete="title" autofocus>
-      <button type="submit" class="btn btn-primary">
-                  {{__('Seatch')}}
-      </button>
+        <div class="gallerysearch-box">
+        <label for="title" class="font-s">キーワードで検索</label><br>
+          <input type="text"name="keyword" autocomplete="title" autofocus><br>
+        <button type="submit" class="btn btn-primary">
+                    {{__('Seatch')}}
+        </button>
+        </div>
       </div>
   </form>
 
@@ -49,7 +51,29 @@
     </div>
   </div>
 
+  <div class="container-fruid">
+  <div class="top-eachposts">
+      
+      @foreach ($posts as $post)
+      <?php $post_image = str_replace('public/', 'storage/', $post->image_url); ?>
+        <div class="top-eachpost image_get">
+          <div class="img_whrapper">
+              <img src ="../{{ $post_image }}" class="img-fluid image_active" alt="Responsive image">
+              <div class="mask">
+                <div class="caption">
+                  <a href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
+                  <span>{{ $post->category->category_name }}</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      @endforeach
+      
+   </div>
+   </div>
+   
 
+<!--
     <div class="each_posts">
 
                 @foreach ($posts as $post)
@@ -75,11 +99,12 @@
                           </span>
                         </div>
                       </div>
-
-
                     </div>
                   @endforeach
-</div>
+      </div>
+
+-->
+
 </div>
 
 @endsection
