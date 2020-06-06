@@ -114,52 +114,6 @@
 </div>
 
 
-
-
-<script>
-  $(function(){
-    console.log("1");
-    let setElm = $('.loopSlider'),
-    slideSpeed = 2000;
-    console.log("1.5");
-    console.log(setElm);
-
-      setElm.each(function(){
-        console.log("2");
-        let self = $(this),
-        selfWidth = self.innerWidth(),
-        findUl = self.find('ul'),
-        findPost = findUl.find('js-eachpost'),//一つ一つの要素の長さ
-        postWidth = findPost.outerWidth(),
-        postCount = findPost.length,
-        loopWidth = postWidth * postCount;
-
-        findUl.wrapAll('<div class="loopSliderWrap" />');
-        let selfWrap = self.find('.loopSlideWrap');
-
-        if(loopWidth > selfWidth){
-          console.log("3");
-            findUl.css({width:loopWidth}).clone().appendTo(selfWrap);
- 
-            selfWrap.css({width:loopWidth*2});
- 
-            function loopMove(){
-                selfWrap.animate({left:'-' + (loopWidth) + 'px'},slideSpeed*listCount,'linear',function(){
-                    selfWrap.css({left:'0'});
-                    loopMove();
-                });
-            };
-            loopMove();
-        }
-
-      });
-  });
-
-
-
-</script>
-
-
 <script>
 
 
