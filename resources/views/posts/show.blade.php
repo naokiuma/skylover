@@ -5,13 +5,13 @@
 <div class="header-sp-space">
 </div>
 
-<div class="container">
+<div class="show-container">
   <?php
   $image_url = str_replace('public/', 'storage/', $post->image_url);
   ?>
 
-  <div class="jumbotron-fluid">
-    <div class="container billbord">
+  <!--<div class="jumbotron-fluid">-->
+    <div class="show-billbord">
       <h3 class="display-6 top_title"><?php echo $post->title ?></h3>
       <img src ="../{{ $image_url }}" class="img-fluid image-l top_main_img" alt="Responsive image"><br>
       <span class="ol_badge badge-pill badge-success top_main_category"><?php echo $post->category->category_name ?></span>
@@ -54,7 +54,8 @@
       
 
   </div>
-</div>
+<!--</div>-->
+
 
 @if( Auth::check() )
   <?php if($user->id == $post->user_id) :?>
@@ -89,13 +90,9 @@ if(@json($fav)){
   console.log(favid);
 }
 
-//こういう方法もある
-//obj = JSON.parse(postid);
-//console.log(obj);
 
 //------------------------------------
 //お気に入り処理1
-//window.addEventListener('DOMContentLoaded', function(){ //いらないっぽい
 $(document).on('click', '.js-click-like', function(e){
   //http://creator.aainc.co.jp/archives/6611#section3 　後から追加したコンテンツでの操作
 //$('.js-click-like').on('click',function(e){ 
@@ -121,7 +118,6 @@ $(document).on('click', '.js-click-like', function(e){
             console.log(msg);
         });
   });
-//});
 
 //お気に入りを外す処理2。
 $(document).on('click', '.js-clicked-like', function(e){

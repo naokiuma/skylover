@@ -44,19 +44,6 @@ Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallba
 Route::get('auth/twitter/logout', 'Auth\TwitterController@logout')->name('auth.twitter.logout');
 
 //お気に入り。ajaxではgetにする。
+Route::get('/favs/{userId}','FavsController@search')->name('favs.search');
 Route::get('/posts/{post}/favs','FavsController@store')->name('favs.store');
 Route::get('/posts/{postId}/favs/{favId}', 'FavsController@destroy')->name('favs.destroy');
-
-//
-//クリプトでは
-//Route::get('ajax/coin', 'AjaxController@coin')->name('ajax.coin');;
-//coin_ajax="{{ url('ajax/coin') }}" これをvueにわたし
-//このように表示
-//    mounted(){
-//        this.showHour();
-//        let self = this;
-//        let url = this.coin_ajax;
-//        axios.get(url).then(function(response){
-//          self.coins = response.data;
-//          });
-//      },

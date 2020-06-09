@@ -56,6 +56,30 @@ class FavsController extends Controller
         //    ->action('PostsController@show',$post->id);
         //通常用ここまで----------
 
+    }
+
+    public function search($userId)
+    {
+        Log::debug("favsのsearchコントローラーで処理を始めます");
+
+        $authusers_fav = Fav::where('user_id',$userId)->get();
+        $num = count($authusers_fav);//取得したfav数
+        for($i = 0 ; $i < $num ; $i++){
+            $post = Post::find($authusers_fav[$i]->post_id);
+            $img_urls[$i] = $post->image_url;
+            Log::debug($img_urls[$i]);
+            $post_id[$i] = $post->id;
+            Log::debug($post_id[$i]);
+        }
+        //$result = array_merge( $img_urls, $post_id);
+        //Log::debug($result);
+        //echo $authusers_fav;
+        $temp = array_combine($post_id,$img_urls);
+        //$rst_img = json_encode($img_urls);
+        //$rst_id = json_encode($post_id);
+        $rst = json_encode($temp);
+        echo $rst;
 
     }
+
 }

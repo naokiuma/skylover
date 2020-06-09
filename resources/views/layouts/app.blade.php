@@ -44,7 +44,7 @@
       Sky Light Lover
     </a>
     </div>
-
+ 
     <div class="header-right" id="navbarSupportedContent">
       <!-- Right Side Of Navbar -->
       <ul class="header-right-ul">
@@ -73,11 +73,6 @@
             <li>
               <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
             </li>
-            <!--
-            <li>
-                <a class="" href="{{ route('posts.category') }}">{{ __('Time') }}</a>
-            </li>
-            -->
             <li>
               <a class="" href="{{ route('new') }}">{{ __('Post') }}</a>
             </li>
@@ -101,14 +96,18 @@
           @endguest
       </ul>
     </div>
+    @auth 
     <div class="widget-wrapper">
-      <a href="">Favorite</a>
+      <div>Favorite</div>
     </div>
+    @endauth
   </div>
 
     @yield('content')
 
-<footer class="footer"></footer>
+<footer class="footer">
+Copyright © Sky Light Lover. All rights reserved
+</footer>
 
 </div>
 </div>
@@ -153,6 +152,28 @@ $(function(){
   })
 })
 }
+
+</script>
+
+<script>
+$(document).on('click', '.widget-wrapper', function(e){
+  let userid = @json($user)['id'];
+  console.log(userid);
+  var search_favurl = `/favs/${userid}/`
+  e.preventDefault();
+  $.ajax({
+    type: "get",
+    url:search_favurl,
+    dataType:'json',
+  }).done(function ( result ){
+    console.log('Ajax Success');
+    console.log(result);
+    
+}).fail(function( msg ){
+  console.log('Ajax Error');
+  console.log(msg);
+});
+});
 
 
 </script>
