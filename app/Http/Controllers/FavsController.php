@@ -66,7 +66,12 @@ class FavsController extends Controller
         $num = count($authusers_fav);//取得したfav数
         for($i = 0 ; $i < $num ; $i++){
             $post = Post::find($authusers_fav[$i]->post_id);
-            $img_urls[$i] = $post->image_url;
+
+            $t_img_url = $post->image_url;
+            $t_img_url = str_replace('public','storage',$t_img_url);//画像のurlのpublicをstrageに置き換える
+            $img_urls[$i] = $t_img_url;
+
+            //$img_urls[$i] = $post->image_url;
             Log::debug($img_urls[$i]);
             $post_id[$i] = $post->id;
             Log::debug($post_id[$i]);

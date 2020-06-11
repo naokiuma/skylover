@@ -10597,6 +10597,34 @@ h3 {
           transform: scaleX(1.1) scaleY(1.03);
 }
 
+.favs-window {
+  display: none;
+  width: 100%;
+  height: 30%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.favs-posts-wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.favs-post {
+  width: 20%;
+  margin: auto;
+}
+.favs-post img {
+  width: 100%;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -11086,6 +11114,9 @@ ul {
   }
 }
 
+.gallerysearch-box {
+  text-align: center;
+}
 .gallerysearch-box input {
   margin: 10px;
 }
@@ -11281,6 +11312,10 @@ ul {
   .show-container {
     height: 80vh;
   }
+}
+
+.center {
+  text-align: center;
 }
 
 .space {

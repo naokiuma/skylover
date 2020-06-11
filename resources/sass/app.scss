@@ -64,6 +64,34 @@ $res-max-width:414px;
   }
 }
 
+.favs-window{
+  display: none;
+  width: 100%;
+  height: 30%;
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.favs-posts-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.favs-post{
+  width: 20%;
+  margin: auto;
+  img{
+    width: 100%;
+  }
+
+}
+
 
 //フッター
 footer {
@@ -192,7 +220,6 @@ a{
   }
   
 
-  //.sp-active{    }
 
   .header-left{
     font-size: 14px;
@@ -525,6 +552,7 @@ ul{
 
 
 .gallerysearch-box{
+  text-align: center;
   input{
     margin:10px;
   }
@@ -728,6 +756,9 @@ ul{
 
 //その他コンテンツ//
 
+.center{
+  text-align: center;
+}
 .space{
   height: 40px;
   width: 100%;

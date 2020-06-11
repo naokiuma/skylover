@@ -20,7 +20,7 @@
   {{ csrf_field() }}
 
 <!--タイトル-->
-    <div class="form-group">
+    <div class="form-group center">
     <label for="title" class="font-m">{{ __('Title') }}</label><br>
       <input type="text" name="title" value="{{old('title')}}"
       autocomplete="title" autofocus>
@@ -34,8 +34,8 @@
 
 
   <!--画像投稿オリジナル-->
-    <div class="form-group">
-      <span class="font-m">画像投稿</span>
+    <div class="form-group center">
+      <span class="font-m center">画像投稿</span>
     <div class="form-image_url drag-drop-area"><!--ドラッグエリア-->
       <input id="fileInput" class="drag-space" type="file" value="{{old('image_url')}}" name="image_url">
       <img class="preview-cover"></div>

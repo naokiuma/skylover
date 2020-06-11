@@ -68,7 +68,7 @@
               <div class="alert">
                 {{session('flash_message')}}
               </div>
-              @endif
+          @endif
           @else
             <li>
               <a class="" href="{{ route('posts.gallery') }}">{{ __('Gallery') }}</a>
@@ -102,6 +102,12 @@
     </div>
     @endauth
   </div>
+  <div class="favs-window">
+    <div class="favs-posts-wrapper">
+
+
+    </div>
+  </div>
 
     @yield('content')
 
@@ -130,7 +136,6 @@ $(window).on('scroll',function(){
     startPos = winScrollTop;
 });
 } 
-
 </script>
 
 <script>
@@ -156,23 +161,49 @@ $(function(){
 </script>
 
 <script>
+var fav_flg = false;
+
 $(document).on('click', '.widget-wrapper', function(e){
-  let userid = @json($user)['id'];
-  console.log(userid);
-  var search_favurl = `/favs/${userid}/`
-  e.preventDefault();
-  $.ajax({
-    type: "get",
-    url:search_favurl,
-    dataType:'json',
-  }).done(function ( result ){
-    console.log('Ajax Success');
-    console.log(result);
-    
-}).fail(function( msg ){
-  console.log('Ajax Error');
-  console.log(msg);
-});
+  if(fav_flg === false){
+      let userid = @json($user)['id'];
+      console.log(userid);
+      var search_favurl = `/favs/${userid}/`
+      e.preventDefault();
+      $.ajax({
+        type: "get",
+        url:search_favurl,
+        dataType:'json',
+      }).done(function ( result ){
+        console.log('Ajax Success');
+        console.log(result);
+        fav_flg = true;
+        console.log("flgはtrueです");
+        $(".favs-window").toggle(500);
+          $.each(result, function(i, val) {
+            var temp_dom = $( `
+            <div class="favs-post">
+              <a href="posts/${i}"><img src="../${val}" alt=""></a>
+            </div>
+            `, 
+            );
+            $(".favs-posts-wrapper").append(temp_dom);
+            temp_dom = null;
+          });
+          
+      }).fail(function( msg ){
+        console.log('Ajax Error');
+        console.log(msg);
+    });
+
+  }else{
+    fav_flg = false;
+    console.log("flgはfalseです");
+    $(".favs-posts-wrapper").empty();
+    $(".favs-window").toggle(500);
+
+
+  }
+
 });
 
 
