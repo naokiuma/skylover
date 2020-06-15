@@ -65,7 +65,6 @@ public function show($id){
   $user = Auth::user();//ユーザー情報
   $post = Post::find($id);//ポスト情報
   if(Auth::user()){
-    Log::debug(print_r("なぜかこちら"));
     $fav = $post->favs()->where('user_id',Auth::user()->id)->first();
   }else{
     $fav = "";
@@ -107,8 +106,8 @@ public function gallery(){
 public function search(Request $request){
  $keyword = $request->input('keyword');
  $posts = Post::where('title','LIKE',"%{$keyword}%")->get();
- Log::debug(print_r("結果".$posts , true));
- Log::debug(count($posts));
+ //Log::debug(print_r("結果".$posts , true));
+ //Log::debug(count($posts));
 
  if(count($posts) === 0){
    $posts = Post::all();

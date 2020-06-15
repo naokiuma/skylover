@@ -111,9 +111,11 @@
 
     @yield('content')
 
+<!--
 <footer class="footer">
 Copyright © Sky Light Lover. All rights reserved
 </footer>
+-->
 
 </div>
 </div>
@@ -161,6 +163,11 @@ $(function(){
 </script>
 
 <script>
+  $.ajaxSetup({
+    beforeSend : function(xhr) {
+        xhr.overrideMimeType('text/html;charset=Shift_JIS');
+    }
+});
 var fav_flg = false;
 
 $(document).on('click', '.widget-wrapper', function(e){

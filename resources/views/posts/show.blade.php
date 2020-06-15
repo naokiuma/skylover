@@ -90,6 +90,12 @@ if(@json($fav)){
   console.log(favid);
 }
 
+//http://shanabrian.com/web/html-css-js-technics/js-bug-ie-02.php
+$.ajaxSetup({
+    beforeSend : function(xhr) {
+        xhr.overrideMimeType('text/html;charset=Shift_JIS');
+    }
+});
 
 //------------------------------------
 //お気に入り処理1
