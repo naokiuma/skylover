@@ -83,6 +83,7 @@ class FavsController extends Controller
         //$rst_img = json_encode($img_urls);
         //$rst_id = json_encode($post_id);
         $rst = json_encode($temp);
+        header("Access-Control-Allow-Origin: *");
         echo $rst;
 
     }

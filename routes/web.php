@@ -47,3 +47,4 @@ Route::get('auth/twitter/logout', 'Auth\TwitterController@logout')->name('auth.t
 Route::get('/favs/{userId}','FavsController@search')->name('favs.search');
 Route::get('/posts/{post}/favs','FavsController@store')->name('favs.store');
 Route::get('/posts/{postId}/favs/{favId}', 'FavsController@destroy')->name('favs.destroy');
+

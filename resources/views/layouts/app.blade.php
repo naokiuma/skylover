@@ -121,6 +121,12 @@ Copyright © Sky Light Lover. All rights reserved
 </div>
 
 
+<?php 
+//アプリのurlを持ってくる。
+$site_url = (config('app.url')); 
+?>
+
+
 <script>
 
 
@@ -163,18 +169,24 @@ $(function(){
 </script>
 
 <script>
+/*
   $.ajaxSetup({
     beforeSend : function(xhr) {
         xhr.overrideMimeType('text/html;charset=Shift_JIS');
     }
 });
+*/
 var fav_flg = false;
+var site_url = @json($site_url);
+
 
 $(document).on('click', '.widget-wrapper', function(e){
   if(fav_flg === false){
       let userid = @json($user)['id'];
-      console.log(userid);
-      var search_favurl = `/favs/${userid}/`
+      //console.log(userid);
+      console.log(site_url);
+      //var search_favurl = `/favs/${userid}/`//デフォ
+      var search_favurl = `${site_url}/favs/${userid}/`//サイトurlも含んだもの
       e.preventDefault();
       $.ajax({
         type: "get",
