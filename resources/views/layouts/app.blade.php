@@ -186,7 +186,7 @@ $(document).on('click', '.widget-wrapper', function(e){
       //console.log(userid);
       console.log(site_url);
       //var search_favurl = `/favs/${userid}/`//デフォ
-      var search_favurl = `${site_url}/favs/${userid}/`//サイトurlも含んだもの
+      var search_favurl = `${site_url}/favs/${userid}`//サイトurlも含んだもの
       e.preventDefault();
       $.ajax({
         type: "get",
