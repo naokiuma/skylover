@@ -195,9 +195,11 @@ $(document).on('click', '.widget-wrapper', function(e){
       }).done(function ( result ){
         console.log('Ajax Success');
         console.log(result);
+        console.log(Object.keys(result).length);//取得お気に入り数
         fav_flg = true;
         console.log("flgはtrueです");
-        $(".favs-window").toggle(500);
+        if(Object.keys(result).length >= 1){
+          $(".favs-window").toggle(500);
           $.each(result, function(i, val) {
             var temp_dom = $( `
             <div class="favs-post">
@@ -208,6 +210,20 @@ $(document).on('click', '.widget-wrapper', function(e){
             $(".favs-posts-wrapper").append(temp_dom);
             temp_dom = null;
           });
+        }else{
+          console.log("なんもない！");
+          $(".favs-window").toggle(500);
+          var temp_dom = $( `
+              <div class="favs-none">
+                <h4>お気に入り投稿はありません。</h4>
+                <a href="posts/gallery">いろんな空の写真をみよう！</a>
+              </div>
+            `, 
+            );
+            $(".favs-posts-wrapper").append(temp_dom);
+            temp_dom = null;
+        }
+
           
       }).fail(function( msg ){
         console.log('Ajax Error');
