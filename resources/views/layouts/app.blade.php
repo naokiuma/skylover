@@ -203,7 +203,7 @@ $(document).on('click', '.widget-wrapper', function(e){
           $.each(result, function(i, val) {
             var temp_dom = $( `
             <div class="favs-post">
-              <a href="posts/${i}"><img src="../${val}" alt=""></a>
+              <a href="posts/${i}"><img src="${site_url}/${val}" alt=""></a>
             </div>
             `, 
             );
