@@ -30,6 +30,7 @@ class FavsController extends Controller
         //$fav_id = Fav::all()->first();//これはダメ。最初のが来てしまう。       
         $data_arr = array($post, $fav);
         $datas = json_encode($data_arr);
+        header("Access-Control-Allow-Origin: *");
         echo $datas;
         //ajax用ここまで----------
 
@@ -49,6 +50,7 @@ class FavsController extends Controller
         $post = Post::findOrFail($postId);
 
         //ajax用ここから----------
+        header("Access-Control-Allow-Origin: *");
         echo $post;
 
         //通常用ここから----------
