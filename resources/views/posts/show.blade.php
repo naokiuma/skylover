@@ -13,7 +13,7 @@
   <!--<div class="jumbotron-fluid">-->
     <div class="show-billbord">
       <h3 class="display-6 top_title"><?php echo $post->title ?></h3>
-      <img src ="../{{ $image_url }}" class="img-fluid image-l top_main_img" alt="Responsive image"><br>
+      <img src ="../{{ $image_url }}" class="img-fluid top_main_img" alt="Responsive image"><br>
       <span class="ol_badge badge-pill badge-success top_main_category"><?php echo $post->category->category_name ?></span>
       <span class="time_info top_main_info"><?php echo $post->created_at ?>posted.</span>
       <!--お気に入り-->
@@ -70,13 +70,20 @@
 </div>
 
 
+<?php 
+//アプリのurlを持ってくる。
+$site_url = (config('app.url')); 
+?>
+
 <!--//ajax用スクリプと-->
 
 <script>
 let postid = @json($post)['id'];
 console.log(postid);//該当ポストのid
 //favするためのurl
-var url = `/posts/${postid}/favs`
+var site_url = @json($site_url);
+//var url = `/posts/${postid}/favs`
+var url = `${site_url}/posts/${postid}/favs`
 var return_fav_id;
 
 //favがすでにある状態で、このページを読み込んだ場合の処理。
@@ -89,7 +96,6 @@ if(@json($fav)){
   console.log("favidです");
   console.log(favid);
 }
-
 //http://shanabrian.com/web/html-css-js-technics/js-bug-ie-02.php
 $.ajaxSetup({
     beforeSend : function(xhr) {
@@ -98,6 +104,7 @@ $.ajaxSetup({
 });
 
 //------------------------------------
+
 //お気に入り処理1
 $(document).on('click', '.js-click-like', function(e){
   //http://creator.aainc.co.jp/archives/6611#section3 　後から追加したコンテンツでの操作
@@ -133,12 +140,14 @@ $(document).on('click', '.js-clicked-like', function(e){
 e.preventDefault();
 //読み込みの時点でfavidがある場合。
 if(return_fav_id){
-  var deleteurl = `/posts/${postid}/favs/${return_fav_id}`
+  //var deleteurl = `/posts/${postid}/favs/${return_fav_id}`
+  var deleteurl = `${site_url}/posts/${postid}/favs/${return_fav_id}`
   console.log("最初からfavされていました。deleteurlです。");
   console.log(deleteurl);
   favid = " ";
   }else if(favid){
-    var deleteurl = `/posts/${postid}/favs/${favid}`
+    //var deleteurl = `/posts/${postid}/favs/${favid}`
+    var deleteurl = `${site_url}/posts/${postid}/favs/${favid}`
     console.log("あとからfavされました。deleteurlです。");
     console.log(deleteurl);
   }

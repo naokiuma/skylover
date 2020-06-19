@@ -10605,7 +10605,8 @@ h3 {
   bottom: 0;
   left: 0;
   z-index: 1000;
-  background-color: #d0f4d7;
+  background-color: white;
+  border-top: 1px solid;
 }
 
 .favs-none {
@@ -10625,13 +10626,15 @@ h3 {
 }
 
 .favs-post {
+  height: 80%;
   max-width: 25%;
   margin: auto;
+  overflow: hidden;
 }
 .favs-post img {
   width: 100%;
 }
-.favs-post img::hover {
+.favs-post img:hover {
   opacity: 0.8;
 }
 
@@ -11041,8 +11044,10 @@ a:hover {
   padding: 5%;
   text-align: center;
   letter-spacing: 1px;
-  background-color: #e7f9f5;
   padding: 5%;
+}
+.show-billbord img {
+  border: black 5px solid;
 }
 
 .like-button {
@@ -11085,23 +11090,32 @@ ul {
   position: relative;
 }
 .img_whrapper .caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-          transform: translateY(-50%) translateX(-50%);
   width: 100%;
   font-size: 80%;
   text-align: center;
   color: #fff;
-  background: #f5f5dc69;
+  background: #f5dcdc0d;
+  height: 100%;
 }
 .img_whrapper .caption a {
-  color: black;
-  display: block;
+  color: white;
+  display: inline-block;
   padding: 5px;
-  margin: auto;
-  font-size: 14px;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-top: 15%;
+  font-weight: lighter;
+  background-color: #ffffff3b;
+}
+@media screen and (max-width: 414px) {
+  .img_whrapper .caption a {
+    font-size: 14px;
+    margin-top: 0%;
+  }
+}
+.img_whrapper .caption a:hover {
+  color: black;
+  background-color: white;
 }
 .img_whrapper .mask {
   width: 100%;
