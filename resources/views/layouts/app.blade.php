@@ -201,6 +201,7 @@ $(document).on('click', '.widget-wrapper', function(e){
         if(Object.keys(result).length >= 1){
           $(".favs-window").toggle(500);
           $.each(result, function(i, val) {
+            console.log(i);
             var temp_dom = $( `
             <div class="favs-post">
               <a href="posts/${i}"><img src="${site_url}/${val}" alt=""></a>
