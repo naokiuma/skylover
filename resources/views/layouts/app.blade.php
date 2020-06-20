@@ -103,9 +103,8 @@
     @endauth
   </div>
   <div class="favs-window">
+  <h4 class="fav-lead">お気に入り投稿</h4>
     <div class="favs-posts-wrapper">
-
-
     </div>
   </div>
 
