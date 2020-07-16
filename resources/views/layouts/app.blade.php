@@ -7,8 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
-
     <title>Sky Light Lover</title>
 
     <!-- Scripts -->
@@ -25,6 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <!--Iconfonts-->
     <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+    <!--animate.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.cs">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -97,7 +97,7 @@
       </ul>
     </div>
     @auth 
-    <div class="widget-wrapper">
+    <div class="widget-wrapper animated bounce">
       <div>Favorite</div>
     </div>
     @endauth
@@ -121,19 +121,18 @@ Copyright © Sky Light Lover. All rights reserved
 
 
 <?php 
-//アプリのurlを持ってくる。
+//アプリのurl
 $site_url = (config('app.url')); 
 ?>
 
 
 <script>
-
-
-//スクロールするとひっこめる動き。pcの場合のみ
-if (window.matchMedia('(min-width: 414px)').matches) {
+//スクロールするとひっこめる動き。767px以上のpcの場合のみ
+if (window.matchMedia('(min-width: 767px)').matches) {
   // PC表示の時の処理
 let startPos = 0,winScrollTop = 0;
 $(window).on('scroll',function(){
+
     winScrollTop = $(this).scrollTop();
     if (winScrollTop >= startPos &&  winScrollTop >= 200) {
         $('.header-container').addClass('hide');
@@ -148,7 +147,7 @@ $(window).on('scroll',function(){
 <script>
 //スマホメニューonoff。スマホの場合のみ
 //sp-activeclassの有無でスマホメニューを開いているか判定
-if (window.matchMedia('(max-width: 414px)').matches) {
+if (window.matchMedia('(max-width: 767px)').matches) {
 
 $(function(){
   $(".sp-menu-js").click(function(){
@@ -168,14 +167,8 @@ $(function(){
 </script>
 
 <script>
-/*
-  $.ajaxSetup({
-    beforeSend : function(xhr) {
-        xhr.overrideMimeType('text/html;charset=Shift_JIS');
-    }
-});
-*/
-var fav_flg = false;
+
+var fav_flg = false;//お気に入りのフラグ。お気に入りを開くとtrueになる
 var site_url = @json($site_url);
 
 
@@ -197,9 +190,10 @@ $(document).on('click', '.widget-wrapper', function(e){
         console.log(Object.keys(result).length);//取得お気に入り数
         fav_flg = true;
         console.log("flgはtrueです");
-        if(Object.keys(result).length >= 1){
-          $(".favs-window").toggle(500);
-          $.each(result, function(i, val) {
+        if(Object.keys(result).length >= 1){//一つ以上お気に入りがある場合
+          $('.favs-window').css('display','block');          
+         //$(".favs-window").toggle(500);
+          $.each(result, function(i, val) {　
             console.log(i);
             var temp_dom = $( `
             <div class="favs-post">
@@ -211,8 +205,9 @@ $(document).on('click', '.widget-wrapper', function(e){
             temp_dom = null;
           });
         }else{
-          console.log("なんもない！");
-          $(".favs-window").toggle(500);
+          console.log("なし");
+          $('.favs-window').css('display','block');
+          //$(".favs-window").toggle(500);
           var temp_dom = $( `
               <div class="favs-none">
                 <h4>お気に入り投稿はありません。</h4>
@@ -234,6 +229,7 @@ $(document).on('click', '.widget-wrapper', function(e){
     fav_flg = false;
     console.log("flgはfalseです");
     $(".favs-posts-wrapper").empty();
+    //$('.favs-window').css('display','none');
     $(".favs-window").toggle(500);
 
 

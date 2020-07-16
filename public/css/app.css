@@ -10606,11 +10606,18 @@ h3 {
   z-index: 1000;
   background-color: #e9f9f4;
   padding-bottom: 50px;
+  -webkit-animation-name: LeftToRight;
+          animation-name: LeftToRight;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
 }
 
 .fav-lead {
   text-align: center;
   margin: 20px;
+  font-family: "M PLUS Rounded 1c";
 }
 
 .favs-none {
@@ -11404,22 +11411,30 @@ ul {
 }
 @-webkit-keyframes LeftToRight {
   0% {
+    opacity: 0;
+    /* 透明 */
     -webkit-transform: translateX(-60%);
             transform: translateX(-60%);
     /* X軸方向に50px */
   }
   100% {
+    opacity: 1;
+    /* 不透明 */
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
 }
 @keyframes LeftToRight {
   0% {
+    opacity: 0;
+    /* 透明 */
     -webkit-transform: translateX(-60%);
             transform: translateX(-60%);
     /* X軸方向に50px */
   }
   100% {
+    opacity: 1;
+    /* 不透明 */
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
