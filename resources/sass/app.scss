@@ -536,7 +536,6 @@ ul{
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 200px;
   .caption{
     width: 100%;
     font-size: 80%;
@@ -786,7 +785,32 @@ ul{
 }
 
 
+//マイページ//
 
+.mypage-read{
+    font-size:24px;
+    text-align: center;
+    margin: 60px auto;
+}
+
+.mypage{
+  width: 80%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  .user{
+    &__wrapper{
+      margin: auto;
+      width: 30%;
+    }
+  }
+}
+
+.posts{
+  &__wrapper{
+    width: 70%;
+  }
+}
 
 //その他コンテンツ//
 

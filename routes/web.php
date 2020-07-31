@@ -32,7 +32,7 @@ Route::post('/posts/gallery', 'PostsController@search')->name('posts.search');//
 Route::post('/posts/category', 'PostsController@category')->name('posts.category');
 
 //マイページ
-Route::get('/user/mypage', 'UserController@index')->name('user.mypage');
+Route::get('/user/mypage', 'UserController@index')->name('user.mypage')->middleware('check');
 
 
 //ツイッター関連

@@ -24,8 +24,8 @@ class TwitterController extends Controller
     public function handleProviderCallback(){
         try {
             $twitterUser = Socialite::driver('twitter')->user();
-            //Log::debug("出力！");
-            //Log::debug(print_r($twitterUser, true));
+            Log::debug("Twitter出力！");
+            Log::debug(print_r($twitterUser, true));
         }catch(Exception $e){
             return redirect('/')->withErrors('ユーザー情報の取得に失敗しました。');
         }

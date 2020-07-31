@@ -11099,7 +11099,6 @@ ul {
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 200px;
 }
 .img_whrapper .caption {
   width: 100%;
@@ -11348,6 +11347,29 @@ ul {
   .show-container {
     height: 80vh;
   }
+}
+
+.mypage-read {
+  font-size: 24px;
+  text-align: center;
+  margin: 60px auto;
+}
+
+.mypage {
+  width: 80%;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.mypage .user__wrapper {
+  margin: auto;
+  width: 30%;
+}
+
+.posts__wrapper {
+  width: 70%;
 }
 
 .center {
