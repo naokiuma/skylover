@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 
 @section('content')
 
@@ -57,6 +57,7 @@
               <div class="mask">
                 <div class="caption">
                   <a href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
+
                 </div>
               </div>
           </div>

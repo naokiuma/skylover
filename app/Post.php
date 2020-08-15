@@ -27,4 +27,9 @@ class Post extends Model
       return Fav::where('user_id',Auth::user()->id)->first();
     }
 
+    protected $casts = [
+      'id' => 'integer',
+      'title' => 'string'
+    ];
+
 }
