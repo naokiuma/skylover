@@ -16,7 +16,7 @@
   }
   ?></h2>
 
-  <?php
+  <?php 
  // var_dump($posts);
  //print_r($posts);
   $top_post = $posts[0];
@@ -62,10 +62,10 @@
               <div class="mask">
                 <div class="caption">
                   <a href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
-                  <!--<span>{{ $post->category->category_name }}</span>-->
                 </div>
               </div>
           </div>
+          <a class="sp-eachpost-title" href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
         </div>
       @endforeach
       

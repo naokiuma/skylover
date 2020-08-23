@@ -117,6 +117,7 @@ return view ('posts.gallery',compact('posts','keyword'));
 }
 
 //------------------カテゴリーで振り分けページ
+/*
 
 public function category(){
   
@@ -127,6 +128,7 @@ public function category(){
   $posts_night = Post::where('category_id',3)->orderBy('created_at', 'desc')->get();
   return view ('posts.category',compact('posts_morning','posts_daytime','posts_night'));
 }
+*/
 
 
 }

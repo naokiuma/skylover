@@ -37,6 +37,13 @@
   <div id="app" class="contents-wrapper">
   <div class="sp-menu-box sp-menu-js"><i class="fab fa-mixcloud icon-mixcoud"></i></div>
   <div class="header-space"></div> 
+  <div class="header-sp-space">
+    <a class="" href="{{ url('/') }}">
+        Sky Light Lover
+    </a>
+  </div> 
+
+  
 
   <div class="header-container">
     <div class="header-left">
@@ -107,24 +114,20 @@
     <div class="favs-posts-wrapper">
     </div>
   </div>
-
     @yield('content')
-
-<!--
 <footer class="footer">
 Copyright © Sky Light Lover. All rights reserved
 </footer>
--->
 
 </div>
 </div>
+
 
 
 <?php 
 //アプリのurl
 $site_url = (config('app.url')); 
 ?>
-
 
 <script>
 //スクロールするとひっこめる動き。767px以上のpcの場合のみ
@@ -163,14 +166,12 @@ $(function(){
   })
 })
 }
-
 </script>
 
 <script>
 
 var fav_flg = false;//お気に入りのフラグ。お気に入りを開くとtrueになる
 var site_url = @json($site_url);
-
 
 $(document).on('click', '.widget-wrapper', function(e){
   if(fav_flg === false){

@@ -10551,6 +10551,11 @@ h3 {
   height: 100%;
   position: relative;
 }
+@media screen and (max-width: 414px) {
+  .all-wrapper {
+    height: 100vh;
+  }
+}
 
 .contents-wrapper {
   padding-bottom: 100px;
@@ -10580,9 +10585,10 @@ h3 {
   top: 0;
   left: 0;
   z-index: 29;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  background: #72e68a;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  background: white;
+  border: 2px solid #3490dc;
 }
 .widget-wrapper div {
   z-index: 50;
@@ -10771,6 +10777,7 @@ a:hover {
   background-color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  border-bottom: 2px solid #3490dc;
 }
 @media screen and (max-width: 414px) {
   .header-container {
@@ -10962,6 +10969,9 @@ a:hover {
 }
 .top-posts-p a {
   color: black;
+  background: #79ffff;
+  padding: 5px 20px;
+  box-shadow: 2px 2px 2px;
 }
 
 .step__wrapper {
@@ -11085,13 +11095,12 @@ ul {
 
 .top-eachpost {
   text-align: center;
-  width: 30%;
+  width: 40%;
   margin: 20px auto;
 }
 @media screen and (max-width: 414px) {
   .top-eachpost {
-    width: 40%;
-    margin: 1px;
+    margin: 10px auto;
   }
 }
 
@@ -11099,6 +11108,12 @@ ul {
   width: 100%;
   overflow: hidden;
   position: relative;
+  border: black 3px solid;
+}
+@media screen and (max-width: 414px) {
+  .img_whrapper {
+    height: 90px;
+  }
 }
 .img_whrapper .caption {
   width: 100%;
@@ -11107,6 +11122,11 @@ ul {
   color: #fff;
   background: #f5dcdc0d;
   height: 100%;
+}
+@media screen and (max-width: 414px) {
+  .img_whrapper .caption {
+    display: none;
+  }
 }
 .img_whrapper .caption a {
   color: white;
@@ -11135,7 +11155,6 @@ ul {
   top: 0;
   left: 0;
   opacity: 0;
-  /* マスクを表示しない */
   background-color: rgba(0, 0, 0, 0.4);
   -webkit-transition: all 0.6s ease;
   -webkit-transition: all 0.3s ease;
@@ -11143,9 +11162,19 @@ ul {
 }
 @media screen and (max-width: 414px) {
   .img_whrapper .mask {
-    opacity: 1;
+    display: none;
     padding-top: 20%;
     background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.sp-eachpost-title {
+  display: none;
+}
+@media screen and (max-width: 414px) {
+  .sp-eachpost-title {
+    display: block;
+    font-size: 12px;
   }
 }
 
@@ -11154,6 +11183,9 @@ ul {
 }
 .gallerysearch-box input {
   margin: 10px;
+}
+.gallerysearch-box .btn {
+  width: 200px;
 }
 
 /*カテゴリーページ*/
@@ -11403,9 +11435,15 @@ ul {
 @media screen and (max-width: 414px) {
   .header-sp-space {
     display: block;
-    height: 80px;
+    height: 70px;
     width: 100%;
   }
+}
+.header-sp-space a {
+  font-size: 16px;
+  margin-left: 20px;
+  padding-top: 20px;
+  display: block;
 }
 
 @-webkit-keyframes gradationMorning {

@@ -19,7 +19,7 @@ class UserController extends Controller
         //$posts = Post::Where('user_id', '$userid')->get();//これでは取得できない
         //Query Time:1.96s] select * from `users` where `id` = ? limit 1 
 
-        $posts = $user -> posts()->get();//これでは取得できる
+        $posts = $user -> posts()->get();//これで取得できる
         //Query Time:17.88s] select * from `posts` where `posts`.`user_id` = ? and `posts`.`user_id` is not null
         //Log::debug(print_r("結果".$posts , true));
 

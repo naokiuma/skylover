@@ -14,8 +14,6 @@
     @guest
     <a href="{{ route('register') }}" class="top-billbord_btn">さっそく登録する</a>
     @endguest
-    
-
 </section>
 
 
@@ -34,7 +32,6 @@
       <h3>2.写真を撮る</h3>
       <img src="img/photo2.jpg" alt="">
     </div>
-
     <div class="step__post">
       <h3>3.投稿する</h3>
       <img src="img/post.jpg" alt="">
@@ -57,10 +54,10 @@
               <div class="mask">
                 <div class="caption">
                   <a href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
-
                 </div>
               </div>
           </div>
+          <a class="sp-eachpost-title" href="{{route('posts.show',$post->id) }}" class="btn each_post__btn">{{ $post->title }} </a>
         </div>
       @endforeach
       
